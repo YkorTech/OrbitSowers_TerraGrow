@@ -1,0 +1,95 @@
+{
+  "name": "Dhaka, Bangladesh",
+  "lat": 23.81,
+  "lon": 90.41,
+  "climate": "Tropical mousson",
+  "soil_type": "clay",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 27.7,
+      "precipitation": 175.3,
+      "humidity": 90.7,
+      "evapotranspiration": 0.7
+    },
+    {
+      "week": 2,
+      "temperature": 28.3,
+      "precipitation": 110.3,
+      "humidity": 89.6,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 3,
+      "temperature": 29.2,
+      "precipitation": 104.5,
+      "humidity": 88.2,
+      "evapotranspiration": 0.9
+    },
+    {
+      "week": 4,
+      "temperature": 28.4,
+      "precipitation": 127.9,
+      "humidity": 91.1,
+      "evapotranspiration": 0.7
+    },
+    {
+      "week": 5,
+      "temperature": 27.8,
+      "precipitation": 175.4,
+      "humidity": 91.4,
+      "evapotranspiration": 0.6
+    },
+    {
+      "week": 6,
+      "temperature": 28.3,
+      "precipitation": 77.1,
+      "humidity": 88.7,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 7,
+      "temperature": 27.9,
+      "precipitation": 78.0,
+      "humidity": 91.3,
+      "evapotranspiration": 0.6
+    },
+    {
+      "week": 8,
+      "temperature": 27.9,
+      "precipitation": 52.4,
+      "humidity": 89.3,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 9,
+      "temperature": 29.1,
+      "precipitation": 45.9,
+      "humidity": 86.7,
+      "evapotranspiration": 1.0
+    },
+    {
+      "week": 10,
+      "temperature": 28.2,
+      "precipitation": 31.4,
+      "humidity": 89.1,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 11,
+      "temperature": 27.8,
+      "precipitation": 110.1,
+      "humidity": 89.9,
+      "evapotranspiration": 0.7
+    },
+    {
+      "week": 12,
+      "temperature": 29.0,
+      "precipitation": 40.6,
+      "humidity": 87.4,
+      "evapotranspiration": 1.0
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:53.891233",
+  "source": "NASA POWER API"
+}

@@ -1,0 +1,95 @@
+{
+  "name": "Addis-Abeba, Éthiopie",
+  "lat": 9.03,
+  "lon": 38.74,
+  "climate": "Subtropical montagnard",
+  "soil_type": "loam",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 16.4,
+      "precipitation": 101.0,
+      "humidity": 79.8,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 2,
+      "temperature": 16.3,
+      "precipitation": 85.9,
+      "humidity": 80.3,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 3,
+      "temperature": 16.6,
+      "precipitation": 75.2,
+      "humidity": 81.6,
+      "evapotranspiration": 1.0
+    },
+    {
+      "week": 4,
+      "temperature": 16.0,
+      "precipitation": 122.7,
+      "humidity": 85.1,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 5,
+      "temperature": 16.0,
+      "precipitation": 116.9,
+      "humidity": 84.5,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 6,
+      "temperature": 15.9,
+      "precipitation": 110.2,
+      "humidity": 84.6,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 7,
+      "temperature": 14.9,
+      "precipitation": 50.3,
+      "humidity": 87.7,
+      "evapotranspiration": 0.6
+    },
+    {
+      "week": 8,
+      "temperature": 15.7,
+      "precipitation": 82.9,
+      "humidity": 86.7,
+      "evapotranspiration": 0.7
+    },
+    {
+      "week": 9,
+      "temperature": 15.5,
+      "precipitation": 37.5,
+      "humidity": 83.5,
+      "evapotranspiration": 0.9
+    },
+    {
+      "week": 10,
+      "temperature": 15.4,
+      "precipitation": 64.5,
+      "humidity": 84.2,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 11,
+      "temperature": 15.7,
+      "precipitation": 36.9,
+      "humidity": 81.6,
+      "evapotranspiration": 1.0
+    },
+    {
+      "week": 12,
+      "temperature": 15.7,
+      "precipitation": 42.0,
+      "humidity": 80.6,
+      "evapotranspiration": 1.0
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:33.109724",
+  "source": "NASA POWER API"
+}

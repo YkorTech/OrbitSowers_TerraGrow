@@ -1,0 +1,95 @@
+{
+  "name": "Beauce, France",
+  "lat": 48.44,
+  "lon": 1.48,
+  "climate": "Océanique tempéré",
+  "soil_type": "loam",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 19.0,
+      "precipitation": 9.3,
+      "humidity": 68.9,
+      "evapotranspiration": 1.8
+    },
+    {
+      "week": 2,
+      "temperature": 22.0,
+      "precipitation": 3.6,
+      "humidity": 66.1,
+      "evapotranspiration": 2.2
+    },
+    {
+      "week": 3,
+      "temperature": 18.9,
+      "precipitation": 20.9,
+      "humidity": 74.0,
+      "evapotranspiration": 1.5
+    },
+    {
+      "week": 4,
+      "temperature": 18.5,
+      "precipitation": 3.4,
+      "humidity": 70.3,
+      "evapotranspiration": 1.7
+    },
+    {
+      "week": 5,
+      "temperature": 20.2,
+      "precipitation": 0.7,
+      "humidity": 60.4,
+      "evapotranspiration": 2.4
+    },
+    {
+      "week": 6,
+      "temperature": 23.2,
+      "precipitation": 0.9,
+      "humidity": 59.8,
+      "evapotranspiration": 2.7
+    },
+    {
+      "week": 7,
+      "temperature": 19.3,
+      "precipitation": 10.5,
+      "humidity": 67.9,
+      "evapotranspiration": 1.9
+    },
+    {
+      "week": 8,
+      "temperature": 19.0,
+      "precipitation": 10.0,
+      "humidity": 65.6,
+      "evapotranspiration": 2.0
+    },
+    {
+      "week": 9,
+      "temperature": 16.6,
+      "precipitation": 17.9,
+      "humidity": 79.9,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 10,
+      "temperature": 16.3,
+      "precipitation": 9.5,
+      "humidity": 73.6,
+      "evapotranspiration": 1.4
+    },
+    {
+      "week": 11,
+      "temperature": 17.1,
+      "precipitation": 8.0,
+      "humidity": 75.7,
+      "evapotranspiration": 1.4
+    },
+    {
+      "week": 12,
+      "temperature": 11.5,
+      "precipitation": 16.0,
+      "humidity": 82.8,
+      "evapotranspiration": 0.8
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:49.353905",
+  "source": "NASA POWER API"
+}

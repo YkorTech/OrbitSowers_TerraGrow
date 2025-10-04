@@ -1,0 +1,95 @@
+{
+  "name": "Punjab, Inde",
+  "lat": 30.73,
+  "lon": 76.78,
+  "climate": "Semi-aride chaud",
+  "soil_type": "loam",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 28.1,
+      "precipitation": 58.2,
+      "humidity": 85.3,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 2,
+      "temperature": 27.9,
+      "precipitation": 40.0,
+      "humidity": 82.8,
+      "evapotranspiration": 1.3
+    },
+    {
+      "week": 3,
+      "temperature": 28.4,
+      "precipitation": 70.2,
+      "humidity": 84.7,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 4,
+      "temperature": 27.7,
+      "precipitation": 86.2,
+      "humidity": 88.4,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 5,
+      "temperature": 27.9,
+      "precipitation": 116.5,
+      "humidity": 86.0,
+      "evapotranspiration": 1.0
+    },
+    {
+      "week": 6,
+      "temperature": 27.2,
+      "precipitation": 109.3,
+      "humidity": 88.5,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 7,
+      "temperature": 27.6,
+      "precipitation": 52.3,
+      "humidity": 84.9,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 8,
+      "temperature": 27.1,
+      "precipitation": 110.4,
+      "humidity": 88.4,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 9,
+      "temperature": 25.0,
+      "precipitation": 174.9,
+      "humidity": 87.6,
+      "evapotranspiration": 0.9
+    },
+    {
+      "week": 10,
+      "temperature": 26.9,
+      "precipitation": 25.2,
+      "humidity": 85.8,
+      "evapotranspiration": 1.0
+    },
+    {
+      "week": 11,
+      "temperature": 27.0,
+      "precipitation": 18.3,
+      "humidity": 83.7,
+      "evapotranspiration": 1.2
+    },
+    {
+      "week": 12,
+      "temperature": 27.0,
+      "precipitation": 0.9,
+      "humidity": 77.4,
+      "evapotranspiration": 1.6
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:37.393763",
+  "source": "NASA POWER API"
+}

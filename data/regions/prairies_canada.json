@@ -1,0 +1,95 @@
+{
+  "name": "Prairies, Canada",
+  "lat": 50.45,
+  "lon": -104.62,
+  "climate": "Continental semi-aride",
+  "soil_type": "loam",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 20.4,
+      "precipitation": 12.4,
+      "humidity": 56.7,
+      "evapotranspiration": 2.7
+    },
+    {
+      "week": 2,
+      "temperature": 17.7,
+      "precipitation": 21.9,
+      "humidity": 56.1,
+      "evapotranspiration": 2.5
+    },
+    {
+      "week": 3,
+      "temperature": 19.6,
+      "precipitation": 29.5,
+      "humidity": 64.4,
+      "evapotranspiration": 2.1
+    },
+    {
+      "week": 4,
+      "temperature": 19.2,
+      "precipitation": 19.6,
+      "humidity": 63.7,
+      "evapotranspiration": 2.2
+    },
+    {
+      "week": 5,
+      "temperature": 20.1,
+      "precipitation": 23.7,
+      "humidity": 75.2,
+      "evapotranspiration": 1.5
+    },
+    {
+      "week": 6,
+      "temperature": 19.3,
+      "precipitation": 5.5,
+      "humidity": 62.5,
+      "evapotranspiration": 2.2
+    },
+    {
+      "week": 7,
+      "temperature": 20.7,
+      "precipitation": 0.9,
+      "humidity": 60.7,
+      "evapotranspiration": 2.4
+    },
+    {
+      "week": 8,
+      "temperature": 21.3,
+      "precipitation": 0.6,
+      "humidity": 52.5,
+      "evapotranspiration": 3.0
+    },
+    {
+      "week": 9,
+      "temperature": 15.8,
+      "precipitation": 2.9,
+      "humidity": 54.9,
+      "evapotranspiration": 2.4
+    },
+    {
+      "week": 10,
+      "temperature": 19.0,
+      "precipitation": 41.5,
+      "humidity": 62.5,
+      "evapotranspiration": 2.2
+    },
+    {
+      "week": 11,
+      "temperature": 17.1,
+      "precipitation": 4.1,
+      "humidity": 74.4,
+      "evapotranspiration": 1.4
+    },
+    {
+      "week": 12,
+      "temperature": 16.7,
+      "precipitation": 0.0,
+      "humidity": 46.3,
+      "evapotranspiration": 3.0
+    }
+  ],
+  "generated_at": "2025-10-04T13:29:01.848079",
+  "source": "NASA POWER API"
+}

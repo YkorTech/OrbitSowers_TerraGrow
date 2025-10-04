@@ -1,0 +1,95 @@
+{
+  "name": "São Paulo, Brésil",
+  "lat": -23.55,
+  "lon": -46.63,
+  "climate": "Subtropical humide",
+  "soil_type": "clay",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 15.2,
+      "precipitation": 0.0,
+      "humidity": 76.7,
+      "evapotranspiration": 1.2
+    },
+    {
+      "week": 2,
+      "temperature": 15.7,
+      "precipitation": 0.1,
+      "humidity": 66.1,
+      "evapotranspiration": 1.8
+    },
+    {
+      "week": 3,
+      "temperature": 16.9,
+      "precipitation": 4.2,
+      "humidity": 70.4,
+      "evapotranspiration": 1.7
+    },
+    {
+      "week": 4,
+      "temperature": 15.7,
+      "precipitation": 5.9,
+      "humidity": 63.5,
+      "evapotranspiration": 2.0
+    },
+    {
+      "week": 5,
+      "temperature": 16.6,
+      "precipitation": 3.5,
+      "humidity": 68.6,
+      "evapotranspiration": 1.7
+    },
+    {
+      "week": 6,
+      "temperature": 14.5,
+      "precipitation": 0.3,
+      "humidity": 71.7,
+      "evapotranspiration": 1.5
+    },
+    {
+      "week": 7,
+      "temperature": 21.1,
+      "precipitation": 0.1,
+      "humidity": 57.1,
+      "evapotranspiration": 2.7
+    },
+    {
+      "week": 8,
+      "temperature": 19.1,
+      "precipitation": 5.3,
+      "humidity": 71.8,
+      "evapotranspiration": 1.7
+    },
+    {
+      "week": 9,
+      "temperature": 18.8,
+      "precipitation": 5.9,
+      "humidity": 73.8,
+      "evapotranspiration": 1.5
+    },
+    {
+      "week": 10,
+      "temperature": 18.1,
+      "precipitation": 5.3,
+      "humidity": 76.4,
+      "evapotranspiration": 1.4
+    },
+    {
+      "week": 11,
+      "temperature": 19.2,
+      "precipitation": 6.6,
+      "humidity": 76.6,
+      "evapotranspiration": 1.4
+    },
+    {
+      "week": 12,
+      "temperature": 17.6,
+      "precipitation": 24.9,
+      "humidity": 79.5,
+      "evapotranspiration": 1.2
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:41.203512",
+  "source": "NASA POWER API"
+}

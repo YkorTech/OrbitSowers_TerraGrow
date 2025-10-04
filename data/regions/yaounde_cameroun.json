@@ -1,0 +1,95 @@
+{
+  "name": "Yaoundé, Cameroun",
+  "lat": 3.87,
+  "lon": 11.52,
+  "climate": "Tropical savane",
+  "soil_type": "clay",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 22.6,
+      "precipitation": 32.1,
+      "humidity": 89.9,
+      "evapotranspiration": 0.7
+    },
+    {
+      "week": 2,
+      "temperature": 23.0,
+      "precipitation": 17.2,
+      "humidity": 87.0,
+      "evapotranspiration": 0.9
+    },
+    {
+      "week": 3,
+      "temperature": 22.8,
+      "precipitation": 21.1,
+      "humidity": 87.4,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 4,
+      "temperature": 23.4,
+      "precipitation": 7.1,
+      "humidity": 84.3,
+      "evapotranspiration": 1.0
+    },
+    {
+      "week": 5,
+      "temperature": 23.1,
+      "precipitation": 16.2,
+      "humidity": 83.9,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 6,
+      "temperature": 23.3,
+      "precipitation": 11.3,
+      "humidity": 81.3,
+      "evapotranspiration": 1.2
+    },
+    {
+      "week": 7,
+      "temperature": 23.4,
+      "precipitation": 22.2,
+      "humidity": 82.6,
+      "evapotranspiration": 1.2
+    },
+    {
+      "week": 8,
+      "temperature": 23.7,
+      "precipitation": 5.5,
+      "humidity": 80.5,
+      "evapotranspiration": 1.3
+    },
+    {
+      "week": 9,
+      "temperature": 22.9,
+      "precipitation": 50.4,
+      "humidity": 88.6,
+      "evapotranspiration": 0.7
+    },
+    {
+      "week": 10,
+      "temperature": 22.4,
+      "precipitation": 65.4,
+      "humidity": 91.4,
+      "evapotranspiration": 0.6
+    },
+    {
+      "week": 11,
+      "temperature": 22.4,
+      "precipitation": 57.7,
+      "humidity": 91.6,
+      "evapotranspiration": 0.5
+    },
+    {
+      "week": 12,
+      "temperature": 22.5,
+      "precipitation": 54.2,
+      "humidity": 90.9,
+      "evapotranspiration": 0.6
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:08.600875",
+  "source": "NASA POWER API"
+}

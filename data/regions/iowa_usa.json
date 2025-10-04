@@ -1,0 +1,95 @@
+{
+  "name": "Iowa, USA",
+  "lat": 41.88,
+  "lon": -93.1,
+  "climate": "Continental humide",
+  "soil_type": "loam",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 24.3,
+      "precipitation": 65.9,
+      "humidity": 81.9,
+      "evapotranspiration": 1.2
+    },
+    {
+      "week": 2,
+      "temperature": 22.5,
+      "precipitation": 44.7,
+      "humidity": 80.9,
+      "evapotranspiration": 1.2
+    },
+    {
+      "week": 3,
+      "temperature": 25.4,
+      "precipitation": 47.7,
+      "humidity": 87.9,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 4,
+      "temperature": 23.3,
+      "precipitation": 58.4,
+      "humidity": 82.1,
+      "evapotranspiration": 1.2
+    },
+    {
+      "week": 5,
+      "temperature": 22.6,
+      "precipitation": 29.0,
+      "humidity": 83.1,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 6,
+      "temperature": 23.2,
+      "precipitation": 25.4,
+      "humidity": 84.0,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 7,
+      "temperature": 23.6,
+      "precipitation": 13.4,
+      "humidity": 83.0,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 8,
+      "temperature": 18.4,
+      "precipitation": 4.1,
+      "humidity": 71.6,
+      "evapotranspiration": 1.7
+    },
+    {
+      "week": 9,
+      "temperature": 16.6,
+      "precipitation": 3.7,
+      "humidity": 71.3,
+      "evapotranspiration": 1.6
+    },
+    {
+      "week": 10,
+      "temperature": 19.7,
+      "precipitation": 4.0,
+      "humidity": 68.4,
+      "evapotranspiration": 1.9
+    },
+    {
+      "week": 11,
+      "temperature": 22.0,
+      "precipitation": 49.6,
+      "humidity": 83.1,
+      "evapotranspiration": 1.1
+    },
+    {
+      "week": 12,
+      "temperature": 20.0,
+      "precipitation": 9.6,
+      "humidity": 78.1,
+      "evapotranspiration": 1.3
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:45.156426",
+  "source": "NASA POWER API"
+}

@@ -1,0 +1,95 @@
+{
+  "name": "Nairobi, Kenya",
+  "lat": -1.28,
+  "lon": 36.82,
+  "climate": "Subtropical montagnard",
+  "soil_type": "loam",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 18.8,
+      "precipitation": 6.6,
+      "humidity": 69.1,
+      "evapotranspiration": 1.8
+    },
+    {
+      "week": 2,
+      "temperature": 19.7,
+      "precipitation": 2.1,
+      "humidity": 64.9,
+      "evapotranspiration": 2.1
+    },
+    {
+      "week": 3,
+      "temperature": 19.3,
+      "precipitation": 1.6,
+      "humidity": 63.1,
+      "evapotranspiration": 2.2
+    },
+    {
+      "week": 4,
+      "temperature": 19.2,
+      "precipitation": 20.3,
+      "humidity": 60.4,
+      "evapotranspiration": 2.4
+    },
+    {
+      "week": 5,
+      "temperature": 17.7,
+      "precipitation": 10.7,
+      "humidity": 72.2,
+      "evapotranspiration": 1.6
+    },
+    {
+      "week": 6,
+      "temperature": 18.4,
+      "precipitation": 8.2,
+      "humidity": 70.4,
+      "evapotranspiration": 1.7
+    },
+    {
+      "week": 7,
+      "temperature": 17.4,
+      "precipitation": 48.0,
+      "humidity": 76.1,
+      "evapotranspiration": 1.4
+    },
+    {
+      "week": 8,
+      "temperature": 18.6,
+      "precipitation": 1.6,
+      "humidity": 66.3,
+      "evapotranspiration": 2.0
+    },
+    {
+      "week": 9,
+      "temperature": 20.2,
+      "precipitation": 1.6,
+      "humidity": 57.1,
+      "evapotranspiration": 2.6
+    },
+    {
+      "week": 10,
+      "temperature": 20.6,
+      "precipitation": 3.0,
+      "humidity": 58.4,
+      "evapotranspiration": 2.6
+    },
+    {
+      "week": 11,
+      "temperature": 21.6,
+      "precipitation": 2.9,
+      "humidity": 55.0,
+      "evapotranspiration": 2.9
+    },
+    {
+      "week": 12,
+      "temperature": 21.3,
+      "precipitation": 2.7,
+      "humidity": 55.0,
+      "evapotranspiration": 2.8
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:24.607063",
+  "source": "NASA POWER API"
+}

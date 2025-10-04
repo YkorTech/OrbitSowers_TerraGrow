@@ -1,0 +1,95 @@
+{
+  "name": "Maroua, Cameroun",
+  "lat": 10.6,
+  "lon": 14.3,
+  "climate": "Sahel semi-aride",
+  "soil_type": "sandy",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 26.8,
+      "precipitation": 43.2,
+      "humidity": 72.9,
+      "evapotranspiration": 1.9
+    },
+    {
+      "week": 2,
+      "temperature": 25.7,
+      "precipitation": 131.5,
+      "humidity": 79.7,
+      "evapotranspiration": 1.4
+    },
+    {
+      "week": 3,
+      "temperature": 26.3,
+      "precipitation": 14.7,
+      "humidity": 79.9,
+      "evapotranspiration": 1.4
+    },
+    {
+      "week": 4,
+      "temperature": 25.6,
+      "precipitation": 43.9,
+      "humidity": 82.4,
+      "evapotranspiration": 1.2
+    },
+    {
+      "week": 5,
+      "temperature": 25.8,
+      "precipitation": 34.0,
+      "humidity": 79.0,
+      "evapotranspiration": 1.5
+    },
+    {
+      "week": 6,
+      "temperature": 25.4,
+      "precipitation": 34.7,
+      "humidity": 82.4,
+      "evapotranspiration": 1.2
+    },
+    {
+      "week": 7,
+      "temperature": 25.2,
+      "precipitation": 47.4,
+      "humidity": 81.0,
+      "evapotranspiration": 1.3
+    },
+    {
+      "week": 8,
+      "temperature": 24.6,
+      "precipitation": 124.7,
+      "humidity": 87.3,
+      "evapotranspiration": 0.9
+    },
+    {
+      "week": 9,
+      "temperature": 25.6,
+      "precipitation": 18.7,
+      "humidity": 78.3,
+      "evapotranspiration": 1.5
+    },
+    {
+      "week": 10,
+      "temperature": 26.3,
+      "precipitation": 30.6,
+      "humidity": 77.6,
+      "evapotranspiration": 1.6
+    },
+    {
+      "week": 11,
+      "temperature": 27.7,
+      "precipitation": 23.4,
+      "humidity": 70.9,
+      "evapotranspiration": 2.1
+    },
+    {
+      "week": 12,
+      "temperature": 26.9,
+      "precipitation": 26.1,
+      "humidity": 73.5,
+      "evapotranspiration": 1.9
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:12.827773",
+  "source": "NASA POWER API"
+}

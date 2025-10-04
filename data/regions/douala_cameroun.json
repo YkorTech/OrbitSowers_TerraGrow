@@ -1,0 +1,95 @@
+{
+  "name": "Douala, Cameroun",
+  "lat": 4.05,
+  "lon": 9.7,
+  "climate": "Tropical humide",
+  "soil_type": "clay",
+  "weather_data": [
+    {
+      "week": 1,
+      "temperature": 24.9,
+      "precipitation": 79.6,
+      "humidity": 90.8,
+      "evapotranspiration": 0.6
+    },
+    {
+      "week": 2,
+      "temperature": 25.0,
+      "precipitation": 72.4,
+      "humidity": 89.7,
+      "evapotranspiration": 0.7
+    },
+    {
+      "week": 3,
+      "temperature": 24.4,
+      "precipitation": 65.8,
+      "humidity": 91.9,
+      "evapotranspiration": 0.6
+    },
+    {
+      "week": 4,
+      "temperature": 24.8,
+      "precipitation": 12.9,
+      "humidity": 89.5,
+      "evapotranspiration": 0.7
+    },
+    {
+      "week": 5,
+      "temperature": 24.4,
+      "precipitation": 44.2,
+      "humidity": 90.5,
+      "evapotranspiration": 0.6
+    },
+    {
+      "week": 6,
+      "temperature": 24.3,
+      "precipitation": 31.8,
+      "humidity": 88.7,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 7,
+      "temperature": 24.7,
+      "precipitation": 70.2,
+      "humidity": 88.8,
+      "evapotranspiration": 0.8
+    },
+    {
+      "week": 8,
+      "temperature": 24.7,
+      "precipitation": 25.5,
+      "humidity": 89.4,
+      "evapotranspiration": 0.7
+    },
+    {
+      "week": 9,
+      "temperature": 24.3,
+      "precipitation": 74.9,
+      "humidity": 90.9,
+      "evapotranspiration": 0.6
+    },
+    {
+      "week": 10,
+      "temperature": 24.1,
+      "precipitation": 133.2,
+      "humidity": 93.1,
+      "evapotranspiration": 0.5
+    },
+    {
+      "week": 11,
+      "temperature": 24.1,
+      "precipitation": 111.0,
+      "humidity": 91.9,
+      "evapotranspiration": 0.5
+    },
+    {
+      "week": 12,
+      "temperature": 24.3,
+      "precipitation": 119.6,
+      "humidity": 91.4,
+      "evapotranspiration": 0.6
+    }
+  ],
+  "generated_at": "2025-10-04T13:28:16.896926",
+  "source": "NASA POWER API"
+}
