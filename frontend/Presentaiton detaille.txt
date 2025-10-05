@@ -1,0 +1,30 @@
+TerraGrow Academy est une expérience web 3D qui transforme les données satellites de la NASA en un outil d’apprentissage immersif et interactif.
+À travers un globe terrestre animé, l’utilisateur explore différentes régions du monde, visualise les conditions climatiques issues de la NASA POWER API (température, humidité, précipitations), puis cultive virtuellement une parcelle selon des données réelles.
+Chaque semaine de jeu, il décide de la quantité d’eau et d’engrais à appliquer. Ces choix modifient la santé de ses plantes, simulée par des calculs de NDVI et de bilan hydrique exécutés sur notre backend Python.
+
+(→ Image 1 suggérée ici : capture du globe 3D avec les marqueurs de régions et le satellite en orbite autour de la Terre.)
+
+La grande originalité du projet réside dans sa capacité à rendre les données spatiales visibles et interactives.
+Les joueurs n’interprètent plus des chiffres : ils observent directement les effets de leurs décisions dans la scène 3D.
+Les plantes grandissent progressivement au fil des semaines, et leur développement est influencé par les variables simulées : irrigation, fertilisation et climat.
+Cette visualisation rend concrète la relation entre les données satellites et la gestion durable des cultures.
+
+(→ Image 2 suggérée ici : capture du champ 3D montrant la croissance progressive des cultures – blé, maïs, riz, etc.)
+
+Notre objectif est de démocratiser l’agriculture de précision et de sensibiliser à la gestion durable des ressources, tout en montrant comment les satellites peuvent aider les agriculteurs à mieux décider.
+
+Sur le plan technique, le projet repose sur une architecture React + Three.js (via React Three Fiber) pour la partie visuelle, Zustand pour la logique de jeu, et Flask + Python pour la simulation scientifique.
+Les textures et modèles 3D utilisés sont tous libres de droits et sous licences open source :
+
+Textures de la Terre : Solar System Scope
+
+Textures de sol et végétation : Poly Haven
+
+Modèles GLB de cultures et satellite : Sketchfab
+
+Ces éléments ont été adaptés et optimisés pour le web, afin d’assurer une bonne performance en WebGL tout en maintenant un rendu visuel réaliste.
+
+page resultat
+
+TerraGrow se veut à la fois un jeu et une expérience d’apprentissage. Il associe rigueur scientifique, design 3D et narration visuelle pour rendre la durabilité agricole accessible à tous.
+En unissant art, science et technologie spatiale, notre équipe a cherché à prouver qu’on peut apprendre à cultiver la Terre… en la regardant depuis l’espace.

@@ -1,0 +1,166 @@
+============================================================
+🧪 TEST AppEEARS API - TerraGrow
+============================================================
+
+📝 ÉTAPE 1/5 : Login NASA Earthdata
+------------------------------------------------------------
+Entrez votre username NASA Earthdata: ykortech
+Entrez votre password NASA Earthdata: q+9EZs@Y3g%u8n7
+✅ AppEEARS login successful! Token expires: 2025-10-06T20:06:02Z
+
+🔍 ÉTAPE 2/5 : Recherche produits disponibles
+------------------------------------------------------------
+
+Recherche NDVI products...
+
+✅ Trouvé 15 produits NDVI:
+   1. MOD13A1.061 - Vegetation Indices (NDVI & EVI)
+      Source: LP DAAC | Résolution: 500m
+   2. MOD13A2.061 - Vegetation Indices (NDVI & EVI)
+      Source: LP DAAC | Résolution: 1000m
+   3. MOD13A3.061 - Vegetation Indices (NDVI & EVI)
+      Source: LP DAAC | Résolution: 1000m
+   4. MOD13Q1.061 - Vegetation Indices (NDVI & EVI)
+      Source: LP DAAC | Résolution: 250m
+   5. MYD13A1.061 - Vegetation Indices (NDVI & EVI)
+      Source: LP DAAC | Résolution: 500m
+
+Recherche SMAP products...
+
+✅ Trouvé 0 produits SMAP:
+
+📡 ÉTAPE 3/5 : Extraction données pour Yaoundé
+------------------------------------------------------------
+
+Configuration:
+   Région: Yaoundé, Cameroun
+   Latitude: 3.87°N
+   Longitude: 11.52°E
+   Produit: MOD13Q1.061 (MODIS NDVI)
+   Période: 12 derniers mois
+✅ Task submitted: 8ac6276e-14e2-44ea-b705-cf97858713cf
+   Status: pending
+⏳ Waiting for task 8ac6276e-14e2-44ea-b705-cf97858713cf to complete...
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: queued
+   Status: processing
+   Status: processing
+   Status: processing
+   Status: processing
+   Status: processing
+   Status: done
+✅ Task completed!
+📥 Downloading: terragrow-yaounde-cameroun-MOD13Q1-061-results.csv
+   ✅ Saved: data/appeears/terragrow-yaounde-cameroun-MOD13Q1-061-results.csv
+📥 Downloading: terragrow-yaounde-cameroun-granule-list.txt
+   ✅ Saved: data/appeears/terragrow-yaounde-cameroun-granule-list.txt
+📥 Downloading: terragrow-yaounde-cameroun-request.json
+   ✅ Saved: data/appeears/terragrow-yaounde-cameroun-request.json
+📥 Downloading: terragrow-yaounde-cameroun-MOD13Q1-061-metadata.xml
+   ✅ Saved: data/appeears/terragrow-yaounde-cameroun-MOD13Q1-061-metadata.xml
+📥 Downloading: README.md
+   ✅ Saved: data/appeears/README.md
+✅ Data extracted to: data/appeears/terragrow-yaounde-cameroun-MOD13Q1-061-results.csv
+
+📊 ÉTAPE 4/5 : Résultats
+------------------------------------------------------------
+
+✅ Extraction réussie!
+   Task ID: 8ac6276e-14e2-44ea-b705-cf97858713cf
+   Fichiers téléchargés: 5
+   Fichier CSV: data/appeears/terragrow-yaounde-cameroun-MOD13Q1-061-results.csv
+
+📄 Aperçu du fichier CSV:
+   ID,Latitude,Longitude,Date,MODIS_Tile,MOD13Q1_061_Line_Y_250m,MOD13Q1_061_Sample_X_250m,MOD13Q1_061__250m_16_days_EVI,MOD13Q1_061__250m_16_days_NDVI,MOD13Q1_061__250m_16_days_VI_Quality,MOD13Q1_061__250m_16_days_VI_Quality_bitmask,MOD13Q1_061__250m_16_days_VI_Quality_MODLAND,MOD13Q1_061__250m_16_days_VI_Quality_MODLAND_Description,MOD13Q1_061__250m_16_days_VI_Quality_VI_Usefulness,MOD13Q1_061__250m_16_days_VI_Quality_VI_Usefulness_Description,MOD13Q1_061__250m_16_days_VI_Quality_Aerosol_Quantity,MOD13Q1_061__250m_16_days_VI_Quality_Aerosol_Quantity_Description,MOD13Q1_061__250m_16_days_VI_Quality_Adjacent_cloud_detected,MOD13Q1_061__250m_16_days_VI_Quality_Adjacent_cloud_detected_Description,MOD13Q1_061__250m_16_days_VI_Quality_Atmosphere_BRDF_Correction,MOD13Q1_061__250m_16_days_VI_Quality_Atmosphere_BRDF_Correction_Description,MOD13Q1_061__250m_16_days_VI_Quality_Mixed_Clouds,MOD13Q1_061__250m_16_days_VI_Quality_Mixed_Clouds_Description,MOD13Q1_061__250m_16_days_VI_Quality_Land/Water_Mask,MOD13Q1_061__250m_16_days_VI_Quality_Land/Water_Mask_Description,MOD13Q1_061__250m_16_days_VI_Quality_Possible_snow/ice,MOD13Q1_061__250m_16_days_VI_Quality_Possible_snow/ice_Description,MOD13Q1_061__250m_16_days_VI_Quality_Possible_shadow,MOD13Q1_061__250m_16_days_VI_Quality_Possible_shadow_Description
+   3.87_11.52,3.87,11.52,2024-09-29,h19v08,2942.0,716.0,0.1166,0.1523,2066.0,0b0000100000010010,0b10,"Pixel produced, but most probably cloudy",0b0100,Decreasing quality,0b00,Climatology,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-10-15,h19v08,2942.0,716.0,0.0943,0.1424,2066.0,0b0000100000010010,0b10,"Pixel produced, but most probably cloudy",0b0100,Decreasing quality,0b00,Climatology,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-10-31,h19v08,2942.0,716.0,0.217,0.3142,4168.0,0b0001000001001000,0b00,VI produced with good quality,0b0010,Decreasing quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-11-16,h19v08,2942.0,716.0,0.1443,0.274,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-02,h19v08,2942.0,716.0,0.0925,0.1959,2185.0,0b0000100010001001,0b01,"VI produced, but check other QA",0b0010,Decreasing quality,0b10,Average,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-18,h19v08,2942.0,716.0,0.0816,0.1708,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-01,h19v08,2942.0,716.0,0.0925,0.1956,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0Quantity_Description,MOD13Q1_061__250m_16_days_VI_Quality_Adjacent_cloud_detected,MOD13Q1_061__250m_16_days_VI_Quality_Adjacent_cloud_detected_Description,MOD13Q1_061__250m_16_days_VI_Quality_Atmosphere_BRDF_Correction,MOD13Q1_061__250m_16_days_VI_Quality_Atmosphere_BRDF_Correction_Description,MOD13Q1_061__250m_16_days_VI_Quality_Mixed_Clouds,MOD13Q1_061__250m_16_days_VI_Quality_Mixed_Clouds_Description,MOD13Q1_061__250m_16_days_VI_Quality_Land/Water_Mask,MOD13Q1_061__250m_16_days_VI_Quality_Land/Water_Mask_Description,MOD13Q1_061__250m_16_days_VI_Quality_Possible_snow/ice,MOD13Q1_061__250m_16_days_VI_Quality_Possible_snow/ice_Description,MOD13Q1_061__250m_16_days_VI_Quality_Possible_shadow,MOD13Q1_061__250m_16_days_VI_Quality_Possible_shadow_Description
+   3.87_11.52,3.87,11.52,2024-09-29,h19v08,2942.0,716.0,0.1166,0.1523,2066.0,0b0000100000010010,0b10,"Pixel produced, but most probably cloudy",0b0100,Decreasing quality,0b00,Climatology,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-10-15,h19v08,2942.0,716.0,0.0943,0.1424,2066.0,0b0000100000010010,0b10,"Pixel produced, but most probably cloudy",0b0100,Decreasing quality,0b00,Climatology,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-10-31,h19v08,2942.0,716.0,0.217,0.3142,4168.0,0b0001000001001000,0b00,VI produced with good quality,0b0010,Decreasing quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-11-16,h19v08,2942.0,716.0,0.1443,0.274,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-02,h19v08,2942.0,716.0,0.0925,0.1959,2185.0,0b0000100010001001,0b01,"VI produced, but check other QA",0b0010,Decreasing quality,0b10,Average,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-18,h19v08,2942.0,716.0,0.0816,0.1708,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-01,h19v08,2942.0,716.0,0.0925,0.1956,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0ogy,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-10-15,h19v08,2942.0,716.0,0.0943,0.1424,2066.0,0b0000100000010010,0b10,"Pixel produced, but most probably cloudy",0b0100,Decreasing quality,0b00,Climatology,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-10-31,h19v08,2942.0,716.0,0.217,0.3142,4168.0,0b0001000001001000,0b00,VI produced with good quality,0b0010,Decreasing quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-11-16,h19v08,2942.0,716.0,0.1443,0.274,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-02,h19v08,2942.0,716.0,0.0925,0.1959,2185.0,0b0000100010001001,0b01,"VI produced, but check other QA",0b0010,Decreasing quality,0b10,Average,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-18,h19v08,2942.0,716.0,0.0816,0.1708,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-01,h19v08,2942.0,716.0,0.0925,0.1956,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-11-16,h19v08,2942.0,716.0,0.1443,0.274,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-02,h19v08,2942.0,716.0,0.0925,0.1959,2185.0,0b0000100010001001,0b01,"VI produced, but check other QA",0b0010,Decreasing quality,0b10,Average,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-18,h19v08,2942.0,716.0,0.0816,0.1708,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-01,h19v08,2942.0,716.0,0.0925,0.1956,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0   3.87_11.52,3.87,11.52,2024-12-02,h19v08,2942.0,716.0,0.0925,0.1959,2185.0,0b0000100010001001,0b01,"VI produced, but check other QA",0b0010,Decreasing quality,0b10,Average,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-18,h19v08,2942.0,716.0,0.0816,0.1708,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-01,h19v08,2942.0,716.0,0.0925,0.1956,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,00,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2024-12-18,h19v08,2942.0,716.0,0.0816,0.1708,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-01,h19v08,2942.0,716.0,0.0925,0.1956,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-17,h19v08,2942.0,716.0,0.0887,0.1785,2257.0,0b0000100011010001,0b01,"VI produced, but check other QA",0b0100,Decreasing quality,0b11,High,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-02-02,h19v08,2942.0,716.0,0.0963,0.1849,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-01,h19v08,2942.0,716.0,0.0925,0.1956,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-17,h19v08,2942.0,716.0,0.0887,0.1785,2257.0,0b0000100011010001,0b01,"VI produced, but check other QA",0b0100,Decreasing quality,0b11,High,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-02-02,h19v08,2942.0,716.0,0.0963,0.1849,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+
+🚀 ÉTAPE 5/5 : Prochaines étapes
+b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-01-17,h19v08,2942.0,716.0,0.0887,0.1785,2257.0,0b0000100011010001,0b01,"VI produced, but check other QA",0b0100,Decreasing quality,0b11,High,0b0,No,0b0,No,0b0,No,0b001,Land (Nothing else but land),0b0,No,0b0,No
+   3.87_11.52,3.87,11.52,2025-02-02,h19v08,2942.0,716.0,0.0963,0.1849,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+
+🚀 ÉTAPE 5/5 : Prochaines étapes
+   3.87_11.52,3.87,11.52,2025-02-02,h19v08,2942.0,716.0,0.0963,0.1849,4164.0,0b0001000001000100,0b00,VI produced with good quality,0b0001,Lower quality,0b01,Low,0b0,No,0b0,No,0b0,No,0b010,Ocean coastlines and lake shorelines,0b0,No,0b0,No
+
+🚀 ÉTAPE 5/5 : Prochaines étapes
+------------------------------------------------------------
+
+🚀 ÉTAPE 5/5 : Prochaines étapes
+------------------------------------------------------------
+
+    Si le test a réussi, vous pouvez maintenant:
+
+    1. Examiner le fichier CSV téléchargé dans data/appeears/
+    2. Adapter le code pour extraire les 15 régions
+------------------------------------------------------------
+
+    Si le test a réussi, vous pouvez maintenant:
+
+    1. Examiner le fichier CSV téléchargé dans data/appeears/
+    2. Adapter le code pour extraire les 15 régions
+
+    Si le test a réussi, vous pouvez maintenant:
+
+    1. Examiner le fichier CSV téléchargé dans data/appeears/
+    2. Adapter le code pour extraire les 15 régions
+    3. Parser les CSV et intégrer au jeu TerraGrow
+    4. Remplacer les simulations par les vraies données MODIS
+
+
+    1. Examiner le fichier CSV téléchargé dans data/appeears/
+    2. Adapter le code pour extraire les 15 régions
+    3. Parser les CSV et intégrer au jeu TerraGrow
+    4. Remplacer les simulations par les vraies données MODIS
+
+    3. Parser les CSV et intégrer au jeu TerraGrow
+    4. Remplacer les simulations par les vraies données MODIS
+
+
+
+============================================================
+✅ TEST TERMINÉ
+============================================================

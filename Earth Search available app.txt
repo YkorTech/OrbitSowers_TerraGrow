@@ -1,0 +1,100 @@
+
+
+SmallSats Orders API [Staging]
+Description:
+
+tempo_subset
+Description: The TEMPO data is not for scientific use
+
+TOLNet
+Description: TOLNet provides high spatio-temporal observations of tropospheric ozone.
+
+VCFW Test
+Description: VCFW Test App
+
+Vertex Development
+Description:
+
+☐ Show applications that can be auto-authorized
+
+
+Keyword Manager
+Description: Manage SKOS Concepts
+
+kms
+Description: Keyword Management System API
+
+makai test
+Description:
+
+MIIC at ASDC
+Description: MIIC services hosted by the ASDC
+
+Multi-Mission Algorithm and Analysis Platform (MAAP)
+Description:
+
+OB.DAAC Data Access
+Description:
+
+OB.DAAC MERIS Level-1 Data EULA
+Description:
+
+OB.DAAC Sentinel Level-1 Data EULA
+Description:
+
+Sea Level Website
+Description: Public and CMS access for Sea Level Change Portal
+
+SEDAC Website
+Description:
+SEDAC is one of the Distributed Active Archive Centers (DAACs) in the Earth Observing System Data and Information System (EOSDIS) of NASA.
+SEDAC focuses on human interactions that support the integration of socioeconomic and Earth science data and to serve as an "Information Gateway" between the Earth and social sciences.
+
+SEDAC Website (Alpha)
+Description:
+SEDAC is one of the Distributed Active Archive Centers (DAACs) in the Earth Observing System Data and Information System (EOSDIS) of NASA.
+SEDAC focuses on human interactions in the environment. Its mission is to develop and operate applications that support the integration of socioeconomic and Earth science data and to serve as an "Information Gateway" between the Earth and social sciences.
+
+SEDAC Website (Beta)
+Description:
+SEDAC is one of the Distributed Active Archive Centers (DAACs) in the Earth Observing System Data and Information System (EOSDIS) of NASA.
+SEDAC focuses on human interactions in the environment. Its mission is to develop and operate applications that support the integration of socioeconomic and Earth science data and to serve as an "Information Gateway" between the Earth and social sciences.
+
+SmallSats Orders API [PROD]
+Description: Smallsat Data Explorer
+
+
+These applications have a EULA, and must be authorized before you can use them
+
+AESICS
+Description: ASTER Emergency Scheduling and Control System (AESICS)
+
+Alaska Satellite Facility Data Access
+Description: Alaska Satellite Facility: making remote-sensing data accessible
+
+Alaska Satellite Facility Data Access (DEV/TEST)
+Description: Alaska Satellite Facility: making remote-sensing data accessible
+
+Alaska Satellite Facility Data Access Egress Control
+Description: ASF makes remote sensing data accessible.
+
+ASTER Free Data
+Description: ASTER Free Data
+
+Contingency app
+Description:
+
+DB Direct
+Description: DB Direct
+
+GESDISC Test Data Archive
+Description: GESDISC Test Data Archive: testbed data archive at GESDISC
+
+GRFN Prod
+Description:
+
+GRFN Test
+Description: Alaska Satellite Facility: making remote-sensing data accessible
+
+Hyrax Test Mule
+Description: This is a Hyrax test system run by OPeNDAP Inc.
