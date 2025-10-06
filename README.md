@@ -2,6 +2,8 @@
 
 Educational precision farming game powered by real NASA satellite data
 
+🌍 **[Live Demo](https://terragrow-frontend.onrender.com)** | 📖 **[GitHub](https://github.com/YkorTech/OrbitSowers_TerraGrow)**
+
 <table>
   <tr>
     <td><img src="assets/logos/orbitsowers_logo.png" alt="OrbitSowers Labs" height="80"></td>
@@ -46,15 +48,16 @@ TerraGrow Academy teaches precision agriculture through an interactive 3D experi
 
 ### Prerequisites
 - Python 3.8+
-- Node.js 18+
+- Node.js 20+
 - pip (Python package manager)
+- npm (Node package manager)
 
 ### Installation
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/OrbitSowers/TerraGrow.git
-cd TerraGrow
+git clone https://github.com/YkorTech/OrbitSowers_TerraGrow.git
+cd OrbitSowers_TerraGrow
 ```
 
 **2. Setup Backend**
@@ -65,9 +68,9 @@ python app.py
 ```
 Backend runs on `http://localhost:5000`
 
-**3. Setup Frontend** (in a separate terminal)
+**3. Setup Frontend** (in a new terminal)
 ```bash
-cd frontend
+cd OrbitSowers_TerraGrow/frontend
 npm install
 npm run dev
 ```
@@ -219,36 +222,6 @@ const API_BASE_URL = 'http://localhost:5000/api'
 Backend port (`backend/app.py`):
 ```python
 app.run(debug=True, port=5000, host='0.0.0.0')
-```
-
----
-
-## Troubleshooting
-
-**API Connection Failed**
-- Ensure backend is running: `curl http://localhost:5000/api/health`
-- Check CORS configuration in `backend/app.py`
-
-**WebGL Context Lost**
-- Refresh the page (F5)
-- Reduce graphics quality in browser settings
-- Check GPU acceleration is enabled
-
-**Missing Textures or 3D Models**
-- Verify files exist in `frontend/public/textures/` and `frontend/public/models/`
-- Check browser console for 404 errors
-
-**Backend Module Not Found**
-```bash
-cd backend
-pip install -r requirements.txt
-```
-
-**Frontend Dependencies Issues**
-```bash
-cd frontend
-rm -rf node_modules package-lock.json
-npm install
 ```
 
 ---
