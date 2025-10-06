@@ -2,8 +2,12 @@
 
 Educational precision farming game powered by real NASA satellite data
 
-![OrbitSowers Labs](assets/logos/orbitsowers_logo.png)
-![NASA Space Apps Challenge](assets/logos/space_apps_logo.png)
+<table>
+  <tr>
+    <td><img src="assets/logos/orbitsowers_logo.png" alt="OrbitSowers Labs" height="80"></td>
+    <td align="right"><img src="assets/logos/space_apps_logo.png" alt="NASA Space Apps Challenge" height="80"></td>
+  </tr>
+</table>
 
 **OrbitSowers Labs** - From Yaoundé, Cameroon to Montréal, Canada
 
@@ -296,12 +300,12 @@ MIT License - See LICENSE file
 ## Contact
 
 **Team LinkedIn Profiles:**
-- [Olivier Youfang Kamgang](https://linkedin.com/in/olivier-youfangkamgang)
+- [Olivier Youfang Kamgang](https://linkedin.com/in/olivier-youfang-kamgang)
 - [Amaury Tchoupe](https://linkedin.com/in/amaury-tchoupe-3b24ab190)
 - [Mathurin Nkinassi](https://linkedin.com/in/mathurin-nkinassi-b70b3b1a3)
 - [Oswald Godwill Litet](https://linkedin.com/in/oswald-godwill-litet-191a36223)
 
-**GitHub:** [OrbitSowers/TerraGrow](https://github.com/OrbitSowers/TerraGrow)
+**GitHub:** [OrbitSowers/TerraGrow](https://github.com/YkorTech/OrbitSowers_TerraGrow)
 
 ---
 
