@@ -3,80 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TerraGrow Academy - Sélection de région</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>🌍 TerraGrow Academy - 3D Interactive Experience</title>
+    <meta name="description" content="Jeu éducatif d'agriculture de précision avec données satellites NASA en 3D">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        overflow: hidden;
+        background: #000;
+      }
+
+      #root {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <h1>🌍 TerraGrow Academy</h1>
-                <p class="tagline">Cultiver l'avenir avec les données NASA</p>
-            </div>
-            <div class="team">
-                <p>Par <strong>OrbitSowers Labs</strong> 🇨🇲 → 🇨🇦</p>
-            </div>
-        </header>
-
-        <!-- Location Selection -->
-        <main class="location-selection">
-            <div class="selection-card">
-                <h2>🗺️ Où cultivez-vous ?</h2>
-                <p class="subtitle">Choisissez votre région pour commencer votre aventure agricole</p>
-
-                <!-- Geolocation Button -->
-                <div class="geolocation-section">
-                    <button id="geolocate-btn" class="btn btn-primary">
-                        📍 Détecter ma position
-                    </button>
-                    <p class="help-text">ou recherchez une ville</p>
-                </div>
-
-                <!-- Search Bar -->
-                <div class="search-section">
-                    <div class="search-box">
-                        <input
-                            type="text"
-                            id="location-search"
-                            placeholder="Rechercher : Yaoundé, Montréal, Nairobi..."
-                            autocomplete="off"
-                        />
-                        <button id="search-btn" class="btn-icon">🔍</button>
-                    </div>
-                    <div id="search-results" class="search-results"></div>
-                </div>
-
-                <!-- Popular Regions -->
-                <div class="popular-regions">
-                    <h3>🌟 Régions populaires</h3>
-                    <div id="popular-grid" class="regions-grid">
-                        <!-- Will be populated by JavaScript -->
-                    </div>
-                </div>
-
-                <!-- Selected Location Display -->
-                <div id="selected-location" class="selected-location" style="display: none;">
-                    <div class="location-info">
-                        <h3>📍 Région sélectionnée</h3>
-                        <p id="selected-name" class="location-name"></p>
-                        <p id="selected-climate" class="climate-info"></p>
-                    </div>
-                    <button id="start-btn" class="btn btn-success btn-large">
-                        🌱 Commencer à cultiver
-                    </button>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Données satellites : NASA POWER • Géolocalisation : OpenStreetMap Nominatim</p>
-            <p>NASA Space Apps Challenge 2025 - Montréal</p>
-        </footer>
-    </div>
-
-    <script src="js/api-client.js"></script>
-    <script src="js/location-selection.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

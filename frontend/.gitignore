@@ -1,0 +1,53 @@
+# Dependencies
+node_modules
+
+# Production build
+dist
+build
+
+# Development
+.vite
+*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Assets - COMMENTED OUT to include in deployment
+# public/textures/*.jpg
+# public/textures/*.png
+# public/textures/*.tif
+# public/models/*.glb
+# public/models/*.gltf
+
+
+# Backend Python
+backend/__pycache__/
+backend/**/*.pyc
+backend/venv/
+backend/.env
+
+# Frontend Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Archives
+old_frontend_classic/
