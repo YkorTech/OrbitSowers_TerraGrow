@@ -13,8 +13,9 @@ services:
     healthCheckPath: /api/health
 
   # Frontend React
-  - type: static
+  - type: web
     name: terragrow-frontend
+    runtime: static
     buildCommand: "cd frontend && npm install && npm run build"
     staticPublishPath: frontend/dist
     envVars:
