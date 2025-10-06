@@ -36,3 +36,5 @@ Thumbs.db
 # Data (large files)
 data/regions/*.nc
 data/regions/*.hdf
+
+nul

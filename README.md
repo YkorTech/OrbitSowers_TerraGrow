@@ -1,239 +1,308 @@
-# 🌍 TerraGrow Academy
+# TerraGrow Academy
 
-## Jeu éducatif d'agriculture de précision avec données satellites NASA
+Educational precision farming game powered by real NASA satellite data
 
-![TerraGrow](https://img.shields.io/badge/NASA-Space%20Apps%20Challenge-blue)
-![Python](https://img.shields.io/badge/Python-3.8+-green)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
+![OrbitSowers Labs](assets/logos/orbitsowers_logo.png)
+![NASA Space Apps Challenge](assets/logos/space_apps_logo.png)
 
----
+**OrbitSowers Labs** - From Yaoundé, Cameroon to Montréal, Canada
 
-## 📖 Description
-
-**TerraGrow Academy** est un jeu éducatif qui enseigne l'agriculture de précision en utilisant de vraies données satellites de la NASA. Les joueurs cultivent des champs virtuels partout dans le monde en prenant des décisions d'irrigation et de fertilisation basées sur des données réelles.
-
-### 🎯 Objectifs
-- Apprendre l'agriculture de précision de manière ludique
-- Comprendre l'utilisation des données satellites (NDVI, humidité du sol, météo)
-- Optimiser le rendement tout en préservant les ressources (eau, azote)
-- Découvrir les défis agricoles de différentes régions du monde
+NASA Space Apps Challenge 2025
 
 ---
 
-## 🌟 Fonctionnalités
+## Overview
 
-✅ **Portée mondiale** : Jouez n'importe où dans le monde
-✅ **Données NASA en temps réel** : Météo via NASA POWER API
-✅ **15 régions pré-calculées** : Données haute qualité pour régions populaires
-✅ **Simulation réaliste** : Bilan hydrique, croissance NDVI, stress cultures
-✅ **Événements climatiques** : Sécheresses, canicules, gels selon région
-✅ **Score durabilité** : Évaluation efficacité eau et azote
-✅ **Visualisations** : Graphiques évolution NDVI sur 12 semaines
+TerraGrow Academy teaches precision agriculture through an interactive 3D experience. Players manage virtual farms worldwide using real satellite data from NASA, making irrigation and fertilization decisions based on actual climate conditions.
 
----
+**Key Features:**
+- Interactive 3D globe with 15 pre-calculated regions
+- Real-time NASA POWER API weather data
+- Realistic 12-week crop simulation (wheat, corn, rice, sunflower, tomato, lettuce)
+- 3D field visualization with dynamic crop growth
+- Sustainability scoring system
 
-## 🛠️ Technologies utilisées
+### Screenshots
 
-### Backend
-- **Python 3.8+**
-- **Flask** : API REST
-- **Requests** : Appels APIs externes
-- **NumPy** : Calculs scientifiques
+**Interactive Globe View**
+![Globe View](assets/screenshots/globe_view.png)
+*Click on any of 15 regions worldwide or use geolocation to select your farm location*
 
-### Frontend
-- **HTML5 / CSS3**
-- **JavaScript (Vanilla ES6+)**
-- **Chart.js** : Visualisations graphiques
+**3D Gameplay Interface**
+![Game Interface](assets/screenshots/game_interface.png)
+*Monitor NDVI, soil moisture, and weather while making weekly irrigation and fertilization decisions*
 
-### APIs externes
-- **NASA POWER** : Données météorologiques mondiales
-- **Nominatim (OpenStreetMap)** : Géocodage et recherche de lieux
+**Results & Sustainability Score**
+![Results Screen](assets/screenshots/results_screen.png)
+*Compare your yield to regional averages and receive personalized sustainability feedback*
 
 ---
 
-## 📦 Installation
+## Quick Start
 
-### Prérequis
-- Python 3.8 ou supérieur
-- pip (gestionnaire de packages Python)
-- Navigateur web moderne
+### Prerequisites
+- Python 3.8+
+- Node.js 18+
+- pip (Python package manager)
 
-### Étapes d'installation
+### Installation
 
-1. **Cloner le dépôt**
+**1. Clone the repository**
 ```bash
 git clone https://github.com/OrbitSowers/TerraGrow.git
 cd TerraGrow
 ```
 
-2. **Installer les dépendances Python**
+**2. Setup Backend**
+```bash
+cd backend
+pip install -r requirements.txt
+python app.py
+```
+Backend runs on `http://localhost:5000`
+
+**3. Setup Frontend** (in a separate terminal)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Frontend runs on `http://localhost:3000`
+
+**4. Open in browser**
+Navigate to `http://localhost:3000`
+
+---
+
+## Project Structure
+
+```
+OrbitSowers_TerraGrow/
+├── backend/                        # Flask REST API
+│   ├── app.py                      # Main Flask application
+│   ├── config.py                   # Configuration
+│   ├── requirements.txt            # Python dependencies
+│   ├── models/                     # Simulation models
+│   │   ├── crop.py                 # Crop growth (NDVI)
+│   │   ├── soil.py                 # Soil moisture & nitrogen
+│   │   ├── region.py               # Climate parameters
+│   │   └── game_state.py           # Game orchestration
+│   └── services/                   # External APIs
+│       ├── nasa_power_api.py       # NASA POWER wrapper
+│       ├── geocoding_service.py    # Nominatim geocoding
+│       └── data_provider.py        # Hybrid data provider
+│
+├── frontend/                       # React 3D Interface
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Scene/              # 3D components (Globe, Satellite)
+│   │   │   ├── Field/              # Field visualization
+│   │   │   └── UI/                 # User interface overlays
+│   │   ├── hooks/                  # Custom React hooks
+│   │   ├── utils/                  # Helper functions
+│   │   ├── stores/                 # State management (Zustand)
+│   │   └── styles/                 # Global CSS
+│   ├── public/
+│   │   ├── models/                 # 3D models (GLB)
+│   │   └── textures/               # Earth & terrain textures
+│   ├── package.json
+│   └── vite.config.js
+│
+├── data/                           # Pre-calculated regions
+│   └── regions/                    # 15 regions JSON data
+│
+├── assets/                         # Project assets
+│   ├── logos/                      # OrbitSowers & Space Apps logos
+│   └── screenshots/                # README screenshots
+│
+├── .gitignore
+├── README.md
+└── LICENSE
+```
+
+---
+
+## Technology Stack
+
+**Frontend:**
+- React 18 - UI framework
+- React Three Fiber - 3D WebGL rendering
+- @react-three/drei - 3D helpers and controls
+- Zustand - State management
+- Vite - Build tool and dev server
+
+**Backend:**
+- Python 3.8+ with Flask - REST API
+- NumPy - Scientific computing
+- Requests - HTTP library
+
+**External APIs:**
+- NASA POWER API - Weather and climate data
+- OpenStreetMap Nominatim - Geocoding and location search
+
+**Data Sources:**
+- 15 pre-calculated regions with high-quality satellite data
+- Real-time API fallback for any location worldwide
+
+---
+
+## Gameplay
+
+1. **Select Region** - Click on the globe or search for a location
+2. **Choose Crop** - Pick from 6 crops based on climate recommendations
+3. **Manage Farm** - Make weekly irrigation and fertilization decisions (12 weeks)
+4. **Monitor Growth** - Watch NDVI, soil moisture, and weather conditions
+5. **Harvest** - Receive sustainability score and yield comparison
+
+---
+
+## Available Regions
+
+15 pre-calculated regions with high-quality NASA data:
+- Cameroon: Yaoundé, Maroua, Douala, Garoua
+- Canada: Montréal, Prairies
+- Kenya: Nairobi
+- Nigeria: Kano
+- Ethiopia: Addis Ababa
+- India: Punjab
+- Brazil: São Paulo
+- USA: Iowa
+- France: Beauce
+- Bangladesh: Dhaka
+- Argentina: Pampas
+
+Additional locations supported via real-time NASA POWER API.
+
+---
+
+## API Endpoints
+
+The Flask backend provides the following REST endpoints:
+
+- `POST /api/init` - Initialize game session with location (lat/lon)
+- `POST /api/action` - Submit weekly irrigation and fertilization decisions
+- `GET /api/harvest` - Get final harvest results and sustainability score
+- `GET /api/search-location?q=query` - Search for locations via Nominatim
+- `GET /api/popular-regions` - Get list of 15 pre-calculated regions
+- `GET /api/health` - Health check endpoint
+
+---
+
+## Development
+
+### Build for Production
+
+**Backend:**
+```bash
+cd backend
+python app.py
+```
+
+**Frontend:**
+```bash
+cd frontend
+npm run build
+npm run preview
+```
+
+### Configuration
+
+Frontend API endpoint (`frontend/src/utils/apiClient.js`):
+```javascript
+const API_BASE_URL = 'http://localhost:5000/api'
+```
+
+Backend port (`backend/app.py`):
+```python
+app.run(debug=True, port=5000, host='0.0.0.0')
+```
+
+---
+
+## Troubleshooting
+
+**API Connection Failed**
+- Ensure backend is running: `curl http://localhost:5000/api/health`
+- Check CORS configuration in `backend/app.py`
+
+**WebGL Context Lost**
+- Refresh the page (F5)
+- Reduce graphics quality in browser settings
+- Check GPU acceleration is enabled
+
+**Missing Textures or 3D Models**
+- Verify files exist in `frontend/public/textures/` and `frontend/public/models/`
+- Check browser console for 404 errors
+
+**Backend Module Not Found**
 ```bash
 cd backend
 pip install -r requirements.txt
 ```
 
-3. **Lancer le serveur backend**
+**Frontend Dependencies Issues**
 ```bash
-python app.py
-```
-
-Le serveur démarre sur `http://localhost:5000`
-
-4. **Ouvrir le frontend**
-```bash
-cd ../frontend
-# Ouvrir index.html dans votre navigateur
-# OU utiliser un serveur local :
-python -m http.server 8000
-```
-
-Puis ouvrir `http://localhost:8000` dans votre navigateur.
-
----
-
-## 🎮 Comment jouer
-
-### 1. Sélection de région
-- Utilisez la géolocalisation automatique
-- Recherchez une ville (ex: "Yaoundé", "Montréal")
-- Choisissez parmi 15 régions pré-calculées
-
-### 2. Gestion hebdomadaire
-Chaque semaine, vous décidez :
-- **💧 Irrigation** : 0-30 mm (coût : $3.5/mm)
-- **🌿 Fertilisation** : 0-100 kg N/ha (coût : $1.2/kg)
-
-### 3. Suivi de la culture
-Surveillez :
-- **NDVI** : Indice de végétation (0.15 → 0.85)
-- **Humidité du sol** : % d'eau disponible
-- **Météo** : Température, pluie prévue
-- **Azote disponible** : Nutriments dans le sol
-
-### 4. Événements climatiques
-Affrontez des défis réels selon votre région :
-- 🌵 **Sécheresse** (Sahel, zones arides)
-- ☔ **Pluies torrentielles** (Tropiques)
-- ❄️ **Gel tardif** (Régions tempérées)
-- 🌡️ **Canicule** (Toutes régions)
-
-### 5. Récolte et score
-Après 12 semaines, obtenez :
-- **Rendement** (t/ha) comparé à la moyenne régionale
-- **Score durabilité** (efficacité eau et azote)
-- **Étoiles** (1-5) selon performance globale
-- **Conseils personnalisés** pour s'améliorer
-
----
-
-## 📊 Régions pré-calculées
-
-| Région | Pays | Climat | Cultures |
-|--------|------|--------|----------|
-| Yaoundé | 🇨🇲 Cameroun | Tropical savane | Maïs, Sorgho |
-| Maroua | 🇨🇲 Cameroun | Sahel semi-aride | Sorgho |
-| Douala | 🇨🇲 Cameroun | Tropical humide | Maïs |
-| Montréal | 🇨🇦 Canada | Continental humide | Blé, Maïs |
-| Nairobi | 🇰🇪 Kenya | Subtropical montagnard | Maïs |
-| Kano | 🇳🇬 Nigeria | Sahel | Sorgho |
-| Addis-Abeba | 🇪🇹 Éthiopie | Subtropical montagnard | Blé |
-| Punjab | 🇮🇳 Inde | Semi-aride chaud | Blé |
-| São Paulo | 🇧🇷 Brésil | Subtropical humide | Maïs |
-| Iowa | 🇺🇸 USA | Continental humide | Maïs |
-| Beauce | 🇫🇷 France | Océanique tempéré | Blé |
-| Dhaka | 🇧🇩 Bangladesh | Tropical mousson | Maïs |
-| Pampas | 🇦🇷 Argentine | Subtropical humide | Blé, Maïs |
-| Prairies | 🇨🇦 Canada | Continental semi-aride | Blé |
-| Garoua | 🇨🇲 Cameroun | Sahel | Sorgho |
-
----
-
-## 🔬 Sources de données
-
-### NASA POWER API
-- **Température** (T2M) : Température à 2m du sol
-- **Précipitations** (PRECTOTCORR) : Pluie corrigée
-- **Humidité relative** (RH2M) : Humidité à 2m
-- Documentation : https://power.larc.nasa.gov/
-
-### OpenStreetMap Nominatim
-- Géocodage et recherche de lieux
-- API : https://nominatim.openstreetmap.org/
-
----
-
-## 🏗️ Architecture
-
-```
-TerraGrow/
-├── backend/
-│   ├── app.py                 # API Flask principale
-│   ├── config.py              # Configuration
-│   ├── requirements.txt       # Dépendances Python
-│   ├── models/                # Modèles de simulation
-│   │   ├── crop.py           # Modèle culture (NDVI, croissance)
-│   │   ├── soil.py           # Modèle sol (humidité, azote)
-│   │   ├── region.py         # Modèle région (climat, paramètres)
-│   │   └── game_state.py     # Orchestration jeu
-│   └── services/              # Services APIs
-│       ├── nasa_power_api.py # Wrapper NASA POWER
-│       ├── geocoding_service.py # Nominatim
-│       └── data_provider.py  # Données hybrides
-│
-├── frontend/
-│   ├── index.html            # Sélection localisation
-│   ├── game.html             # Jeu principal
-│   ├── results.html          # Résultats finaux
-│   ├── css/
-│   │   └── styles.css        # Styles
-│   └── js/
-│       ├── api-client.js     # Client API
-│       ├── location-selection.js
-│       ├── game.js           # Logique jeu
-│       └── results.js        # Affichage résultats
-│
-├── data/
-│   └── regions/              # Données régions pré-calculées (JSON)
-│
-└── README.md
+cd frontend
+rm -rf node_modules package-lock.json
+npm install
 ```
 
 ---
 
-## 🤝 Équipe OrbitSowers Labs
+## Credits
 
-**De Yaoundé 🇨🇲 à Montréal 🇨🇦**
-
-Nous sommes une équipe passionnée par l'agriculture de précision et la démocratisation des technologies spatiales. Notre mission : rendre les données satellites NASA accessibles aux agriculteurs du monde entier.
-
-### Vision
-> "Cultiver l'avenir avec les yeux de la NASA"
-
----
-
-## 📜 Licence
-
-MIT License - Voir le fichier LICENSE pour plus de détails
+- **NASA POWER API** - Weather and climate data
+- **OpenStreetMap Nominatim** - Geocoding services
+- **Solar System Scope** - Earth textures
+- **Poly Haven** - Terrain textures
+- **Sketchfab Community** - 3D models
 
 ---
 
-## 🙏 Crédits
+## Team
 
-- **NASA POWER Project** : Données météorologiques
-- **OpenStreetMap Nominatim** : Géocodage
-- **Chart.js** : Bibliothèque de graphiques
-- **NASA Space Apps Challenge** : Inspiration et plateforme
+**OrbitSowers Labs** - From Yaoundé, Cameroon to Montréal, Canada
+
+### Team Members
+
+**Olivier Youfang Kamgang** - Aerospace Engineering Student (CEP)
+[LinkedIn](https://linkedin.com/in/olivier-youfangkamgang)
+
+**Amaury Tchoupe** - Mechanical Engineering Student (CEP)
+[LinkedIn](https://linkedin.com/in/amaury-tchoupe-3b24ab190)
+
+**Mathurin Nkinassi** - Financial Mathematics Student
+[LinkedIn](https://linkedin.com/in/mathurin-nkinassi-b70b3b1a3)
+
+**Oswald Godwill Litet** - M.Eng Electrical Engineering
+[LinkedIn](https://linkedin.com/in/oswald-godwill-litet-191a36223)
+
+### Our Mission
+
+Democratize precision agriculture through space technology accessible to farmers worldwide.
+
+> "Cultivating the future with NASA's eyes in the sky"
+
+We are engineering students from Cameroon now based in Montréal. Our families farm the land back home, and we witnessed how unpredictable weather affects crop yields. Through this project, we bridge NASA's satellite technology with real-world farming challenges.
 
 ---
 
-## 📧 Contact
+## License
 
-Pour toute question ou contribution :
-- GitHub Issues : https://github.com/OrbitSowers/TerraGrow/issues
-- Email : contact@orbitsowers.com
+MIT License - See LICENSE file
 
 ---
 
-**🌾 TerraGrow Academy - Apprendre l'agriculture de précision, une semaine à la fois**
+## Contact
 
-*NASA Space Apps Challenge 2025 - Montréal* 
+**Team LinkedIn Profiles:**
+- [Olivier Youfang Kamgang](https://linkedin.com/in/olivier-youfangkamgang)
+- [Amaury Tchoupe](https://linkedin.com/in/amaury-tchoupe-3b24ab190)
+- [Mathurin Nkinassi](https://linkedin.com/in/mathurin-nkinassi-b70b3b1a3)
+- [Oswald Godwill Litet](https://linkedin.com/in/oswald-godwill-litet-191a36223)
+
+**GitHub:** [OrbitSowers/TerraGrow](https://github.com/OrbitSowers/TerraGrow)
+
+---
+
+*NASA Space Apps Challenge 2025 - Montréal*
