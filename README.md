@@ -243,7 +243,7 @@ app.run(debug=True, port=5000, host='0.0.0.0')
 ### Team Members
 
 **Olivier Youfang Kamgang** - Aerospace Engineering Student (CEP)
-[LinkedIn](https://linkedin.com/in/olivier-youfangkamgang)
+[LinkedIn](https://linkedin.com/in/olivier-youfang-kamgang)
 
 **Amaury Tchoupe** - Mechanical Engineering Student (CEP)
 [LinkedIn](https://linkedin.com/in/amaury-tchoupe-3b24ab190)
@@ -266,19 +266,7 @@ We are engineering students from Cameroon now based in Montréal. Our families f
 
 ## License
 
-MIT License - See LICENSE file
-
----
-
-## Contact
-
-**Team LinkedIn Profiles:**
-- [Olivier Youfang Kamgang](https://linkedin.com/in/olivier-youfang-kamgang)
-- [Amaury Tchoupe](https://linkedin.com/in/amaury-tchoupe-3b24ab190)
-- [Mathurin Nkinassi](https://linkedin.com/in/mathurin-nkinassi-b70b3b1a3)
-- [Oswald Godwill Litet](https://linkedin.com/in/oswald-godwill-litet-191a36223)
-
-**GitHub:** [OrbitSowers/TerraGrow](https://github.com/YkorTech/OrbitSowers_TerraGrow)
+MIT License
 
 ---
 
