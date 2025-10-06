@@ -30,12 +30,12 @@ npm-debug.log*
 .env.local
 .env.production
 
-# Assets (large files - should be copied manually)
-public/textures/*.jpg
-public/textures/*.png
-public/textures/*.tif
-public/models/*.glb
-public/models/*.gltf
+# Assets - COMMENTED OUT to include in deployment
+# public/textures/*.jpg
+# public/textures/*.png
+# public/textures/*.tif
+# public/models/*.glb
+# public/models/*.gltf
 
 
 # Backend Python
