@@ -48,17 +48,77 @@ class Config:
 
     # Crop parameters
     CROPS = {
-        'maize': {
+        'wheat': {
+            'name': 'Blé',
+            'optimal_temp': 18,  # °C
+            'optimal_moisture': 55,  # %
+            'water_need': 450,  # mm per season
+            'nitrogen_need': 120,  # kg/ha
+            'growth_rate': 0.075,  # NDVI increase per week
+            'initial_ndvi': 0.14,
+            'max_ndvi': 0.82,
+        },
+        'corn': {
             'name': 'Maïs',
-            'optimal_temp': 25,  # °C
-            'optimal_moisture': 60,  # %
-            'water_need': 500,  # mm per season
-            'nitrogen_need': 150,  # kg/ha
-            'growth_rate': 0.08,  # NDVI increase per week
+            'optimal_temp': 25,
+            'optimal_moisture': 60,
+            'water_need': 500,
+            'nitrogen_need': 150,
+            'growth_rate': 0.08,
             'initial_ndvi': 0.15,
             'max_ndvi': 0.85,
         },
-        'sorghum': {
+        'maize': {  # Alias for corn (backward compatibility)
+            'name': 'Maïs',
+            'optimal_temp': 25,
+            'optimal_moisture': 60,
+            'water_need': 500,
+            'nitrogen_need': 150,
+            'growth_rate': 0.08,
+            'initial_ndvi': 0.15,
+            'max_ndvi': 0.85,
+        },
+        'rice': {
+            'name': 'Riz',
+            'optimal_temp': 28,
+            'optimal_moisture': 80,  # Rice needs more water
+            'water_need': 700,
+            'nitrogen_need': 130,
+            'growth_rate': 0.07,
+            'initial_ndvi': 0.13,
+            'max_ndvi': 0.83,
+        },
+        'sunflower': {
+            'name': 'Tournesol',
+            'optimal_temp': 22,
+            'optimal_moisture': 50,  # Drought resistant
+            'water_need': 350,
+            'nitrogen_need': 90,
+            'growth_rate': 0.08,
+            'initial_ndvi': 0.16,
+            'max_ndvi': 0.84,
+        },
+        'tomato': {
+            'name': 'Tomate',
+            'optimal_temp': 24,
+            'optimal_moisture': 65,
+            'water_need': 550,
+            'nitrogen_need': 160,
+            'growth_rate': 0.09,
+            'initial_ndvi': 0.18,
+            'max_ndvi': 0.86,
+        },
+        'lettuce': {
+            'name': 'Laitue',
+            'optimal_temp': 16,
+            'optimal_moisture': 70,
+            'water_need': 300,
+            'nitrogen_need': 80,
+            'growth_rate': 0.10,  # Fast growing
+            'initial_ndvi': 0.20,
+            'max_ndvi': 0.80,
+        },
+        'sorghum': {  # Keep for backward compatibility
             'name': 'Sorgho',
             'optimal_temp': 28,
             'optimal_moisture': 50,
@@ -67,16 +127,6 @@ class Config:
             'growth_rate': 0.07,
             'initial_ndvi': 0.12,
             'max_ndvi': 0.80,
-        },
-        'wheat': {
-            'name': 'Blé',
-            'optimal_temp': 18,
-            'optimal_moisture': 55,
-            'water_need': 450,
-            'nitrogen_need': 120,
-            'growth_rate': 0.075,
-            'initial_ndvi': 0.14,
-            'max_ndvi': 0.82,
         }
     }
 
