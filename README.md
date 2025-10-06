@@ -2,7 +2,7 @@
 
 Educational precision farming game powered by real NASA satellite data
 
-🌍 **[Live Demo](https://terragrow-frontend.onrender.com)** | 📖 **[GitHub](https://github.com/YkorTech/OrbitSowers_TerraGrow)**
+🌍 **[Live Demo](https://terragrow-frontend.onrender.com)**
 
 <table>
   <tr>
