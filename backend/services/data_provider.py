@@ -8,6 +8,7 @@ import os
 import math
 from .nasa_power_api import NASAPowerAPI
 from .geocoding_service import GeocodingService
+from .historical_data_loader import HistoricalDataLoader
 
 
 class DataProvider:
@@ -16,6 +17,7 @@ class DataProvider:
     def __init__(self):
         self.nasa_api = NASAPowerAPI()
         self.geocoding = GeocodingService()
+        self.historical_loader = HistoricalDataLoader()
         self.static_regions = self._load_popular_regions()
 
     def _load_popular_regions(self):
@@ -26,18 +28,37 @@ class DataProvider:
         from config import Config
         return Config.POPULAR_REGIONS
 
-    def get_game_data(self, lat, lon):
+    def get_game_data(self, lat, lon, season_id=None, region_id=None):
         """
         Get complete game data for a location
 
         Args:
             lat (float): Latitude
             lon (float): Longitude
+            season_id (str): Optional season ID ('spring_2024', 'summer_2024')
+            region_id (str): Optional region ID ('yaounde_cameroun', etc.)
 
         Returns:
             dict: Game data including region info and weather
         """
-        # Try to find closest popular region
+        # If region_id and season_id provided, use historical data
+        if region_id and season_id:
+            historical_data = self.historical_loader.load_historical_data(region_id, season_id)
+            if historical_data:
+                return self._format_historical_data(historical_data)
+
+        # If only season_id provided, find closest scenario
+        if season_id:
+            closest = self.historical_loader.find_closest_scenario(lat, lon, season_id)
+            if closest and closest.get('distance_km', 999) < 50:
+                historical_data = self.historical_loader.load_historical_data(
+                    closest['region_id'],
+                    closest['season_id']
+                )
+                if historical_data:
+                    return self._format_historical_data(historical_data)
+
+        # Fallback: Try to find closest popular region (any season)
         closest_region = self._find_closest_region(lat, lon)
 
         if closest_region and self._is_close_enough(lat, lon, closest_region['lat'], closest_region['lon']):
@@ -154,11 +175,60 @@ class DataProvider:
         climate_lower = climate.lower()
 
         if 'tropical' in climate_lower:
-            return 'clay'  # Tropical soils tend to be clayey
+            return 'loam'  # Changed from clay to loam for better drainage in rainy tropics
         elif 'arid' in climate_lower or 'sahel' in climate_lower:
             return 'sandy'
         else:
             return 'loam'  # Default
+
+    def _format_historical_data(self, historical_data):
+        """
+        Format historical data to match game data structure
+
+        Args:
+            historical_data: dict with 'metadata', 'weather', 'modis'
+
+        Returns:
+            dict: Formatted game data
+        """
+        metadata = historical_data['metadata']
+        weather = historical_data['weather']
+        modis = historical_data.get('modis')
+
+        # Convert weather weeks to expected format
+        weather_weeks = []
+        for week in weather['weeks']:
+            # Calculate realistic ET from et0_total (daily) to weekly
+            # et0_total in JSON is already weekly total, but values seem too low
+            # Multiply by 7 to get realistic weekly ET (assuming et0 was daily average)
+            et0_weekly = week.get('et0_total', 3.5) * 7  # ~25mm/week realistic
+
+            weather_weeks.append({
+                'temperature': week['temperature_avg'],
+                'precipitation': week['precipitation_total'],
+                'humidity': week['humidity_avg'],
+                'wind_speed': week.get('wind_speed_avg', 0),
+                'evapotranspiration': et0_weekly,  # ✅ Fixed key name
+                'week_num': week['week']
+            })
+
+        # Estimate soil type based on climate
+        soil_type = self._estimate_soil_type(metadata['location']['climate_zone'])
+
+        return {
+            'name': metadata['region_name'],
+            'lat': metadata['location']['latitude'],
+            'lon': metadata['location']['longitude'],
+            'climate': metadata['location']['climate_zone'],
+            'soil_type': soil_type,
+            'weather_data': weather_weeks,
+            'modis_reference': modis['weeks'] if modis else None,
+            'period': metadata['period'],
+            'season_id': metadata['season_id'],
+            'region_id': metadata['region_id'],
+            'data_sources': metadata.get('data_sources', {}),
+            'source': 'historical'
+        }
 
     def get_region_suggestions(self):
         """Get list of popular regions as suggestions"""

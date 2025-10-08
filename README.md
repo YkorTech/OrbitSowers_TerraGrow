@@ -24,8 +24,11 @@ TerraGrow Academy teaches precision agriculture through an interactive 3D experi
 **Key Features:**
 - Interactive 3D globe with 15 pre-calculated regions
 - Real-time NASA POWER API weather data
-- Realistic 12-week crop simulation (wheat, corn, rice, sunflower, tomato, lettuce)
+- Realistic 12-week crop simulation with phenological growth stages (wheat, corn, rice, sunflower, tomato, lettuce)
+- Dynamic nitrogen requirements based on crop development phase
 - 3D field visualization with dynamic crop growth
+- Smart contextual recommendations based on climate, budget, and crop stage
+- Emergency loan system for challenging scenarios
 - Sustainability scoring system
 
 ### Screenshots
@@ -90,10 +93,10 @@ OrbitSowers_TerraGrow/
 │   ├── config.py                   # Configuration
 │   ├── requirements.txt            # Python dependencies
 │   ├── models/                     # Simulation models
-│   │   ├── crop.py                 # Crop growth (NDVI)
+│   │   ├── crop_v2.py              # Crop growth with phenological stages
 │   │   ├── soil.py                 # Soil moisture & nitrogen
 │   │   ├── region.py               # Climate parameters
-│   │   └── game_state.py           # Game orchestration
+│   │   └── game_state.py           # Game orchestration & loan system
 │   └── services/                   # External APIs
 │       ├── nasa_power_api.py       # NASA POWER wrapper
 │       ├── geocoding_service.py    # Nominatim geocoding
@@ -158,8 +161,10 @@ OrbitSowers_TerraGrow/
 1. **Select Region** - Click on the globe or search for a location
 2. **Choose Crop** - Pick from 6 crops based on climate recommendations
 3. **Manage Farm** - Make weekly irrigation and fertilization decisions (12 weeks)
-4. **Monitor Growth** - Watch NDVI, soil moisture, and weather conditions
-5. **Harvest** - Receive sustainability score and yield comparison
+4. **Monitor Growth** - Watch NDVI, soil moisture, weather conditions, and crop development stage
+5. **Receive Guidance** - Smart recommendations adapt to your region, budget, and crop needs
+6. **Emergency Support** - Access emergency loans from week 8 if budget runs low
+7. **Harvest** - Receive sustainability score and yield comparison
 
 ---
 
@@ -188,9 +193,12 @@ The Flask backend provides the following REST endpoints:
 
 - `POST /api/init` - Initialize game session with location (lat/lon)
 - `POST /api/action` - Submit weekly irrigation and fertilization decisions
+- `POST /api/accept-loan` - Accept emergency loan offer (available from week 8)
 - `GET /api/harvest` - Get final harvest results and sustainability score
+- `GET /api/state` - Get current game state
 - `GET /api/search-location?q=query` - Search for locations via Nominatim
 - `GET /api/popular-regions` - Get list of 15 pre-calculated regions
+- `GET /api/scenarios` - Get available historical scenarios (region + season combinations)
 - `GET /api/health` - Health check endpoint
 
 ---

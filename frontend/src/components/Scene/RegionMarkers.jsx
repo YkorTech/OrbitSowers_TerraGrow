@@ -28,7 +28,12 @@ const POPULAR_REGIONS = [
 export default function RegionMarkers() {
   const setSelectedRegion = useGameStore(state => state.setSelectedRegion)
   const setCameraTarget = useGameStore(state => state.setCameraTarget)
+  const showEducationalPanel = useGameStore(state => state.showEducationalPanel)
+  const showTutorial = useGameStore(state => state.showTutorial)
   const [hoveredId, setHoveredId] = useState(null)
+
+  // Hide labels when any modal is open
+  const hideLabels = showEducationalPanel || showTutorial
 
   const handleRegionClick = (region) => {
     const position = latLonToVector3(region.lat, region.lon, 1)
@@ -86,24 +91,27 @@ export default function RegionMarkers() {
             />
 
             {/* Label */}
-            <Html
-              distanceFactor={0.5}
-              style={{
-                pointerEvents: 'none',
-                userSelect: 'none',
-                fontSize: isHovered ? '12px' : '10px',
-                color: 'white',
-                background: isHovered ? 'rgba(16, 185, 129, 0.9)' : 'rgba(0, 0, 0, 0.7)',
-                padding: isHovered ? '4px 8px' : '2px 6px',
-                borderRadius: '4px',
-                whiteSpace: 'nowrap',
-                fontWeight: isHovered ? '600' : '400',
-                transition: 'all 0.2s ease',
-                border: isHovered ? '1px solid rgba(74, 222, 128, 0.5)' : 'none'
-              }}
-            >
-              {region.flag} {region.name}
-            </Html>
+            {!hideLabels && (
+              <Html
+                distanceFactor={0.5}
+                style={{
+                  pointerEvents: 'none',
+                  userSelect: 'none',
+                  fontSize: isHovered ? '12px' : '10px',
+                  color: 'white',
+                  background: isHovered ? 'rgba(16, 185, 129, 0.9)' : 'rgba(0, 0, 0, 0.7)',
+                  padding: isHovered ? '4px 8px' : '2px 6px',
+                  borderRadius: '4px',
+                  whiteSpace: 'nowrap',
+                  fontWeight: isHovered ? '600' : '400',
+                  transition: 'all 0.2s ease',
+                  border: isHovered ? '1px solid rgba(74, 222, 128, 0.5)' : 'none',
+                  zIndex: 1
+                }}
+              >
+                {region.flag} {region.name}
+              </Html>
+            )}
           </mesh>
         )
       })}

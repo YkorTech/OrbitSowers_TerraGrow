@@ -4,7 +4,7 @@ import { initializeGame, performAction, getHarvestResults } from '../utils/apiCl
 /**
  * Hook to manage NASA data fetching and game initialization
  */
-export function useNASAData(lat, lon, cropId = null) {
+export function useNASAData(lat, lon, cropId = null, seasonId = null, regionId = null) {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -15,8 +15,8 @@ export function useNASAData(lat, lon, cropId = null) {
     setLoading(true)
     setError(null)
 
-    // Pass crop ID to backend
-    initializeGame(lat, lon, cropId)
+    // Pass crop ID, season ID, and region ID to backend
+    initializeGame(lat, lon, cropId, seasonId, regionId)
       .then(response => {
         setData(response)
         setLoading(false)
@@ -25,7 +25,7 @@ export function useNASAData(lat, lon, cropId = null) {
         setError(err.message)
         setLoading(false)
       })
-  }, [lat, lon, cropId])
+  }, [lat, lon, cropId, seasonId, regionId])
 
   return { data, loading, error }
 }

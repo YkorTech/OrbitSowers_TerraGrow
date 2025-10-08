@@ -72,6 +72,29 @@ def get_popular_regions():
     return jsonify({'regions': regions})
 
 
+@app.route('/api/scenarios', methods=['GET'])
+def get_scenarios():
+    """
+    Get list of available historical scenarios (region + season combinations)
+
+    Returns:
+        JSON with list of scenarios including:
+        - region_id, region_name
+        - season_id, season_name
+        - lat, lon, climate
+        - difficulty, recommended_crops
+        - has_modis (bool)
+    """
+    try:
+        scenarios = data_provider.historical_loader.get_available_scenarios()
+        return jsonify({
+            'scenarios': scenarios,
+            'total': len(scenarios)
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 @app.route('/api/init', methods=['POST'])
 def initialize_game():
     """
@@ -81,19 +104,27 @@ def initialize_game():
         lat (float): Latitude
         lon (float): Longitude
         crop_type (str): Type of crop (optional, auto-selected)
+        season_id (str): Season ID (optional, 'spring_2024' or 'summer_2024')
+        region_id (str): Region ID (optional, e.g. 'yaounde_cameroun')
     """
     data = request.get_json()
 
     lat = data.get('lat')
     lon = data.get('lon')
     crop_type = data.get('crop_type')
+    season_id = data.get('season_id')
+    region_id = data.get('region_id')
 
     if lat is None or lon is None:
         return jsonify({'error': 'lat and lon are required'}), 400
 
     try:
-        # Get region data
-        region_data = data_provider.get_game_data(lat, lon)
+        # Get region data (with optional historical scenario)
+        region_data = data_provider.get_game_data(
+            lat, lon,
+            season_id=season_id,
+            region_id=region_id
+        )
 
         # Create region object
         region = Region(
@@ -240,6 +271,53 @@ def get_state():
 
     game_state = game_sessions[session_id]
     return jsonify(game_state.to_dict())
+
+
+@app.route('/api/accept-loan', methods=['POST'])
+def accept_loan():
+    """
+    Accept emergency loan offer
+
+    Body:
+        session_id (str): Game session ID
+    """
+    data = request.get_json()
+    session_id = data.get('session_id')
+
+    if not session_id:
+        return jsonify({'error': 'session_id is required'}), 400
+
+    if session_id not in game_sessions:
+        return jsonify({'error': 'Invalid session_id'}), 404
+
+    try:
+        game_state = game_sessions[session_id]
+
+        # Check if already taken
+        if game_state.loan_taken:
+            return jsonify({'error': 'Loan already taken'}), 400
+
+        # Check if eligible (week >= 8)
+        if game_state.current_week < 8:
+            return jsonify({'error': 'Loan only available from week 8'}), 400
+
+        # Grant loan
+        loan_amount = 500
+        game_state.loan_taken = True
+        game_state.loan_amount = loan_amount
+        game_state.loan_week = game_state.current_week
+        game_state.budget += loan_amount
+
+        return jsonify({
+            'success': True,
+            'loan_amount': loan_amount,
+            'new_budget': game_state.budget,
+            'repayment_due': loan_amount * 1.20,
+            'message': f'Pret de ${loan_amount} accorde. Remboursement: ${loan_amount * 1.20:.0f} (interet 20%)'
+        })
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 if __name__ == '__main__':

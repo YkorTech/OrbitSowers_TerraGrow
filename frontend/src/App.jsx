@@ -3,6 +3,9 @@ import { Canvas } from '@react-three/fiber'
 import Scene from './components/Scene/Scene'
 import LoadingScreen from './components/UI/LoadingScreen'
 import Header from './components/UI/Header'
+import Footer from './components/UI/Footer'
+import TutorialModal from './components/UI/TutorialModal'
+import EducationalPanel from './components/UI/EducationalPanel'
 import RegionCard from './components/UI/RegionCard'
 import GameInterface from './components/UI/GameInterface'
 import ResultsScreen from './components/UI/ResultsScreen'
@@ -64,6 +67,15 @@ function App() {
           ⚠️ Erreur: harvestResults manquant!
         </div>
       )}
+
+      {/* Footer - visible on globe view */}
+      {view === 'globe' && <Footer />}
+
+      {/* Educational Panel - Global access */}
+      <EducationalPanel />
+
+      {/* Tutorial Modal - First launch */}
+      <TutorialModal />
 
       {/* Loading screen */}
       <LoadingScreen />

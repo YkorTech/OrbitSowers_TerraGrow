@@ -1,0 +1,133 @@
+{
+  "region_id": "dhaka_bangladesh",
+  "season_id": "summer_2024",
+  "period": "2024-06-01 to 2024-08-31",
+  "source": "MODIS Terra MOD13Q1.061",
+  "temporal_resolution": "16-day composite",
+  "spatial_resolution": "250m",
+  "total_observations": 7,
+  "observations_in_period": 6,
+  "weeks": [
+    {
+      "week": 1,
+      "start_date": "2024-06-01",
+      "end_date": "2024-06-07",
+      "ndvi_reference": 0.315,
+      "evi_reference": 0.2035,
+      "modis_date": "2024-06-09",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 5
+    },
+    {
+      "week": 2,
+      "start_date": "2024-06-08",
+      "end_date": "2024-06-14",
+      "ndvi_reference": 0.315,
+      "evi_reference": 0.2035,
+      "modis_date": "2024-06-09",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 2
+    },
+    {
+      "week": 3,
+      "start_date": "2024-06-15",
+      "end_date": "2024-06-21",
+      "ndvi_reference": 0.121,
+      "evi_reference": 0.0839,
+      "modis_date": "2024-06-25",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 7
+    },
+    {
+      "week": 4,
+      "start_date": "2024-06-22",
+      "end_date": "2024-06-28",
+      "ndvi_reference": 0.121,
+      "evi_reference": 0.0839,
+      "modis_date": "2024-06-25",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 0
+    },
+    {
+      "week": 5,
+      "start_date": "2024-06-29",
+      "end_date": "2024-07-05",
+      "ndvi_reference": 0.121,
+      "evi_reference": 0.0839,
+      "modis_date": "2024-06-25",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 7
+    },
+    {
+      "week": 6,
+      "start_date": "2024-07-06",
+      "end_date": "2024-07-12",
+      "ndvi_reference": 0.5908,
+      "evi_reference": 0.3029,
+      "modis_date": "2024-07-11",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 2
+    },
+    {
+      "week": 7,
+      "start_date": "2024-07-13",
+      "end_date": "2024-07-19",
+      "ndvi_reference": 0.5908,
+      "evi_reference": 0.3029,
+      "modis_date": "2024-07-11",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 5
+    },
+    {
+      "week": 8,
+      "start_date": "2024-07-20",
+      "end_date": "2024-07-26",
+      "ndvi_reference": 0.6416,
+      "evi_reference": 0.4124,
+      "modis_date": "2024-07-27",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 4
+    },
+    {
+      "week": 9,
+      "start_date": "2024-07-27",
+      "end_date": "2024-08-02",
+      "ndvi_reference": 0.6416,
+      "evi_reference": 0.4124,
+      "modis_date": "2024-07-27",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 3
+    },
+    {
+      "week": 10,
+      "start_date": "2024-08-03",
+      "end_date": "2024-08-09",
+      "ndvi_reference": 0.3568,
+      "evi_reference": 0.2182,
+      "modis_date": "2024-08-12",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 6
+    },
+    {
+      "week": 11,
+      "start_date": "2024-08-10",
+      "end_date": "2024-08-16",
+      "ndvi_reference": 0.3568,
+      "evi_reference": 0.2182,
+      "modis_date": "2024-08-12",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 1
+    },
+    {
+      "week": 12,
+      "start_date": "2024-08-17",
+      "end_date": "2024-08-23",
+      "ndvi_reference": 0.3568,
+      "evi_reference": 0.2182,
+      "modis_date": "2024-08-12",
+      "quality": "Pixel produced, but most probably cloudy",
+      "days_offset": 8
+    }
+  ],
+  "note": "NDVI reference values from MODIS satellite. Used for comparison with simulated NDVI."
+}

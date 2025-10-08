@@ -35,6 +35,12 @@ export const useGameStore = create((set) => ({
   cameraTarget: null,
   setCameraTarget: (target) => set({ cameraTarget: target }),
 
+  // UI Modals
+  showTutorial: false,
+  showEducationalPanel: false,
+  setShowTutorial: (show) => set({ showTutorial: show }),
+  setShowEducationalPanel: (show) => set({ showEducationalPanel: show }),
+
   // Region data cache
   regionDataCache: {},
   cacheRegionData: (regionId, data) => set((state) => ({

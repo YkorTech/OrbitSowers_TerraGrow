@@ -30,12 +30,20 @@ async function fetchAPI(endpoint, options = {}) {
  * @param {number} lat
  * @param {number} lon
  * @param {string} cropType - Optional crop type
+ * @param {string} seasonId - Optional season ID ('spring_2024' or 'summer_2024')
+ * @param {string} regionId - Optional region ID (e.g. 'yaounde_cameroun')
  * @returns {Promise<Object>} Game state
  */
-export async function initializeGame(lat, lon, cropType = null) {
+export async function initializeGame(lat, lon, cropType = null, seasonId = null, regionId = null) {
+  const payload = { lat, lon }
+
+  if (cropType) payload.crop_type = cropType
+  if (seasonId) payload.season_id = seasonId
+  if (regionId) payload.region_id = regionId
+
   return fetchAPI('/init', {
     method: 'POST',
-    body: JSON.stringify({ lat, lon, crop_type: cropType })
+    body: JSON.stringify(payload)
   })
 }
 

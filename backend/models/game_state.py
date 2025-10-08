@@ -4,7 +4,7 @@ Orchestrates the entire game simulation
 """
 
 import random
-from .crop import Crop
+from .crop_v2 import Crop  # Using V2 with phenological stages
 from .soil import Soil
 from .region import Region
 
@@ -38,6 +38,11 @@ class GameState:
         self.moisture_history = [self.soil.moisture]
         self.events_history = []
 
+        # Emergency loan system
+        self.loan_taken = False
+        self.loan_amount = 0
+        self.loan_week = None
+
         # Weather data (to be filled by API)
         self.weather_data = []
 
@@ -59,17 +64,44 @@ class GameState:
         et = weather_data.get('evapotranspiration', 25)
 
         # Apply irrigation and fertilizer
-        irrigation_cost = irrigation_mm * 3.5  # From config
-        fertilizer_cost = fertilizer_kg * 1.2  # From config
+        import sys
+        import os
+        sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+        from config import Config
+
+        irrigation_cost = irrigation_mm * Config.IRRIGATION_COST_PER_MM
+        fertilizer_cost = fertilizer_kg * Config.FERTILIZER_COST_PER_KG
         total_cost = irrigation_cost + fertilizer_cost
+
+        # Emergency loan system
+        loan_offered = False
+        if total_cost > self.budget and self.current_week >= 8 and not self.loan_taken:
+            # Offer emergency loan
+            loan_offered = True
+            loan_info = {
+                'loan_offered': True,
+                'loan_amount': 500,
+                'interest_rate': 0.20,
+                'repayment': 600,
+                'message': 'Budget critique! Pret d\'urgence disponible: $500 (remboursement $600 avec interet 20%)'
+            }
 
         # Check budget
         if total_cost > self.budget:
-            return {
-                'error': 'Insufficient budget',
-                'required': total_cost,
-                'available': self.budget
-            }
+            if loan_offered:
+                # Return error with loan option
+                return {
+                    'error': 'Insufficient budget',
+                    'required': total_cost,
+                    'available': self.budget,
+                    'loan_option': loan_info
+                }
+            else:
+                return {
+                    'error': 'Insufficient budget',
+                    'required': total_cost,
+                    'available': self.budget
+                }
 
         # Deduct costs
         self.budget -= total_cost
@@ -82,8 +114,8 @@ class GameState:
         # Update soil moisture
         moisture_info = self.soil.update_moisture(rain, irrigation_mm, et)
 
-        # Extract nutrients (crop uptake)
-        crop_uptake = self.crop.nitrogen_need / 12  # Weekly uptake
+        # Extract nutrients (crop uptake based on phenological stage)
+        crop_uptake = self.crop.get_nitrogen_requirement()  # Dynamic uptake by growth stage
         self.soil.extract_nutrients(crop_uptake)
 
         # Calculate crop growth
@@ -105,14 +137,19 @@ class GameState:
         self.ndvi_history.append(self.crop.ndvi)
         self.moisture_history.append(self.soil.moisture)
 
-        # Advance week
-        self.current_week += 1
-
         # Generate feedback messages
         messages = self._generate_feedback(growth_info, moisture_info, event)
 
+        # Check if this is the last week BEFORE incrementing
+        week_just_played = self.current_week
+        is_final_week = (week_just_played == self.max_weeks)
+
+        # Advance week AFTER checking
+        self.current_week += 1
+
         return {
-            'week': self.current_week - 1,
+            'week': self.current_week,  # Return NEXT week to play (for UI consistency)
+            'week_played': week_just_played,  # Also include week that was just played (for reference)
             'budget': round(self.budget, 2),
             'crop': self.crop.to_dict(),
             'soil': self.soil.to_dict(),
@@ -128,7 +165,7 @@ class GameState:
             },
             'event': event,
             'messages': messages,
-            'is_complete': self.current_week > self.max_weeks
+            'is_complete': is_final_week  # True only AFTER playing week 12
         }
 
     def _check_random_event(self, weather_data):
@@ -152,34 +189,34 @@ class GameState:
 
         events_config = {
             'drought': {
-                'name': 'Sécheresse',
-                'description': 'Pas de pluie prévue. Humidité sol critique.',
+                'name': 'Drought',
+                'description': 'No rain forecast. Critical soil moisture.',
                 'icon': '🌵',
-                'effect': 'Besoin irrigation urgente'
+                'effect': 'Urgent irrigation needed'
             },
             'heavy_rain': {
-                'name': 'Pluies torrentielles',
-                'description': 'Fortes pluies ! Risque lessivage nutriments.',
+                'name': 'Heavy rain',
+                'description': 'Torrential rain! Risk of nutrient leaching.',
                 'icon': '☔',
-                'effect': 'Drainage sol important'
+                'effect': 'Significant soil drainage'
             },
             'heatwave': {
-                'name': 'Canicule',
-                'description': f'Température extrême {weather_data.get("temperature", 35)}°C !',
+                'name': 'Heatwave',
+                'description': f'Extreme temperature {weather_data.get("temperature", 35)}°C!',
                 'icon': '🌡️',
-                'effect': 'Stress thermique élevé'
+                'effect': 'High thermal stress'
             },
             'frost': {
-                'name': 'Gel tardif',
-                'description': f'Alerte gel ! Température {weather_data.get("temperature", 2)}°C',
+                'name': 'Late frost',
+                'description': f'Frost alert! Temperature {weather_data.get("temperature", 2)}°C',
                 'icon': '❄️',
-                'effect': 'Dommages culture possible'
+                'effect': 'Possible crop damage'
             },
             'cold_snap': {
-                'name': 'Vague de froid',
-                'description': 'Températures basses prolongées',
+                'name': 'Cold snap',
+                'description': 'Prolonged low temperatures',
                 'icon': '🥶',
-                'effect': 'Croissance ralentie'
+                'effect': 'Slowed growth'
             }
         }
 
@@ -203,36 +240,36 @@ class GameState:
         if growth_info['health'] == 'healthy':
             messages.append({
                 'type': 'success',
-                'text': f"✅ Culture saine ! NDVI {growth_info['ndvi']:.2f}"
+                'text': f"✅ Healthy crop! NDVI {growth_info['ndvi']:.2f}"
             })
         elif growth_info['health'] == 'stressed':
             messages.append({
                 'type': 'warning',
-                'text': f"⚠️ Culture stressée. NDVI {growth_info['ndvi']:.2f}"
+                'text': f"⚠️ Crop stressed. NDVI {growth_info['ndvi']:.2f}"
             })
         else:
             messages.append({
                 'type': 'danger',
-                'text': f"🚨 Culture critique ! NDVI {growth_info['ndvi']:.2f}"
+                'text': f"🚨 Critical crop! NDVI {growth_info['ndvi']:.2f}"
             })
 
         # Moisture feedback
         if moisture_info['status'] == 'critical':
             messages.append({
                 'type': 'danger',
-                'text': f"💧 Humidité critique {moisture_info['moisture']:.1f}% ! Irriguer urgent"
+                'text': f"💧 Critical moisture {moisture_info['moisture']:.1f}%! Urgent irrigation needed"
             })
         elif moisture_info['status'] == 'low':
             messages.append({
                 'type': 'warning',
-                'text': f"💧 Humidité basse {moisture_info['moisture']:.1f}%"
+                'text': f"💧 Low moisture {moisture_info['moisture']:.1f}%"
             })
 
         # Drainage warning
         if moisture_info.get('drainage', 0) > 10:
             messages.append({
                 'type': 'info',
-                'text': f"⚠️ Lessivage nutriments : {moisture_info.get('nitrogen_leached', 0):.1f} kg N/ha"
+                'text': f"⚠️ Nutrient leaching: {moisture_info.get('nitrogen_leached', 0):.1f} kg N/ha"
             })
 
         # Event message
@@ -242,7 +279,85 @@ class GameState:
                 'text': f"{event['icon']} {event['name']} : {event['description']}"
             })
 
+        # Smart recommendations (contextual)
+        smart_recs = self._generate_smart_recommendations(growth_info)
+        messages.extend(smart_recs)
+
         return messages
+
+    def _generate_smart_recommendations(self, growth_info):
+        """
+        Generate smart contextual recommendations based on region, week, budget, and crop stage
+
+        Args:
+            growth_info (dict): Current crop growth information
+
+        Returns:
+            list: Smart recommendation messages
+        """
+        recommendations = []
+        climate = self.region.climate.lower()
+        stage = growth_info.get('stage', '')
+        nitrogen_req = growth_info.get('nitrogen_requirement', 0)
+
+        # Week 1-3: Initial guidance for region type
+        if self.current_week <= 3:
+            if 'sahel' in climate or 'arid' in climate:
+                recommendations.append({
+                    'type': 'tip',
+                    'text': f"💡 Region aride detectee! Irrigation minimum: 30mm/semaine recommandee. Budget projete 12 sem: ~$900"
+                })
+            elif 'tropical' in climate or 'humide' in climate:
+                recommendations.append({
+                    'type': 'tip',
+                    'text': f"💡 Region humide! Peu d'irrigation necessaire. Focus sur drainage et fertilisation optimale."
+                })
+
+        # Phenological stage guidance (weeks 4-7: vegetative peak)
+        if 4 <= self.current_week <= 7:
+            if stage == 'Vegetative':
+                recommendations.append({
+                    'type': 'tip',
+                    'text': f"🌱 Stade vegetatif (PIC azote): Besoin {nitrogen_req:.1f} kg N/ha cette semaine. C'est le moment d'investir!"
+                })
+
+        # Budget warnings
+        if self.budget < 300 and self.current_week < 10:
+            weeks_left = self.max_weeks - self.current_week + 1
+            budget_per_week = self.budget / weeks_left if weeks_left > 0 else 0
+            recommendations.append({
+                'type': 'warning',
+                'text': f"⚠️ Budget critique: ${self.budget:.0f} pour {weeks_left} semaines (${budget_per_week:.0f}/sem). Reduire irrigation!"
+            })
+        elif self.budget < 500 and self.current_week < 8:
+            recommendations.append({
+                'type': 'warning',
+                'text': f"⚠️ Budget faible: ${self.budget:.0f}. Optimiser depenses irrigation/fertilisation."
+            })
+
+        # Loan availability reminder
+        if self.budget < 200 and self.current_week >= 8 and not self.loan_taken:
+            recommendations.append({
+                'type': 'info',
+                'text': f"💰 Pret d'urgence disponible: $500 (remboursement $600). Peut vous sauver la recolte!"
+            })
+
+        # Chronic stress warning
+        if growth_info.get('consecutive_stress', 0) >= 2:
+            recommendations.append({
+                'type': 'danger',
+                'text': f"🚨 Stress chronique ({growth_info['consecutive_stress']} sem)! Augmenter irrigation ET fertilisation MAINTENANT."
+            })
+
+        # Late game guidance (maturation)
+        if self.current_week >= 11:
+            if stage == 'Maturation':
+                recommendations.append({
+                    'type': 'info',
+                    'text': f"🌾 Maturation: Besoins reduits ({nitrogen_req:.1f} kg N/ha). Economiser pour maximiser profit."
+                })
+
+        return recommendations
 
     def calculate_final_score(self):
         """
@@ -253,6 +368,17 @@ class GameState:
         """
         # Yield
         crop_yield = self.crop.get_yield()
+
+        # Economic calculations
+        revenue = self.crop.get_revenue()  # Uses price_per_ton from config
+        total_costs = 2000 - self.budget  # Initial budget - remaining
+
+        # Deduct loan repayment if taken
+        loan_repayment = 0
+        if self.loan_taken:
+            loan_repayment = self.loan_amount * 1.20  # 20% interest
+
+        profit = revenue - total_costs - loan_repayment
 
         # Water efficiency (kg yield per m³ water)
         water_efficiency = crop_yield / (self.total_water_used / 100) if self.total_water_used > 0 else 0
@@ -281,6 +407,11 @@ class GameState:
             'yield_unit': 't/ha',
             'regional_avg': regional_avg,
             'yield_diff': round(((crop_yield / regional_avg) - 1) * 100, 1),
+            'revenue': round(revenue, 2),
+            'total_costs': round(total_costs, 2),
+            'loan_taken': self.loan_taken,
+            'loan_repayment': round(loan_repayment, 2) if self.loan_taken else 0,
+            'profit': round(profit, 2),
             'sustainability_score': round(sustainability, 1),
             'water_efficiency': round(water_efficiency, 2),
             'nitrogen_efficiency': round(nitrogen_efficiency, 1),
@@ -328,24 +459,24 @@ class GameState:
         if avg_ndvi >= 0.65:
             recs.append({
                 'type': 'success',
-                'text': f"✅ Excellent maintien NDVI moyen {avg_ndvi:.2f} !"
+                'text': f"✅ Excellent! Average NDVI {avg_ndvi:.2f}"
             })
         elif avg_ndvi < 0.5:
             recs.append({
                 'type': 'warning',
-                'text': f"⚠️ NDVI moyen faible {avg_ndvi:.2f}. Augmenter irrigation et fertilisation."
+                'text': f"⚠️ Low average NDVI {avg_ndvi:.2f}. Increase irrigation and fertilization."
             })
 
         # Water usage
         if self.total_water_used < 300:
             recs.append({
                 'type': 'info',
-                'text': f"💡 Utilisation eau économe ({self.total_water_used:.0f}mm). Bon pour durabilité !"
+                'text': f"💡 Economical water use ({self.total_water_used:.0f}mm). Great for sustainability!"
             })
         elif self.total_water_used > 600:
             recs.append({
                 'type': 'warning',
-                'text': f"⚠️ Consommation eau élevée ({self.total_water_used:.0f}mm). Optimiser irrigation."
+                'text': f"⚠️ High water consumption ({self.total_water_used:.0f}mm). Optimize irrigation."
             })
 
         # Region-specific advice
@@ -353,12 +484,12 @@ class GameState:
         if 'tropical' in climate:
             recs.append({
                 'type': 'info',
-                'text': f"💡 Conseil {self.region.name}: Drainage crucial en saison pluies pour éviter lessivage."
+                'text': f"💡 Tip for {self.region.name}: Drainage is crucial during rainy season to avoid leaching."
             })
         elif 'sahel' in climate or 'arid' in climate:
             recs.append({
                 'type': 'info',
-                'text': f"💡 Conseil {self.region.name}: Réserves eau essentielles. Planifier irrigation stricte."
+                'text': f"💡 Tip for {self.region.name}: Water reserves are essential. Plan strict irrigation."
             })
 
         return recs

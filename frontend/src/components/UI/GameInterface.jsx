@@ -16,8 +16,10 @@ export default function GameInterface({ gameState }) {
 
   const [irrigation, setIrrigation] = useState(0)
   const [fertilizer, setFertilizer] = useState(0)
+  const [showHarvestButton, setShowHarvestButton] = useState(false)
+  const [gameComplete, setGameComplete] = useState(false)
 
-  const irrigationCost = irrigation * 3.5
+  const irrigationCost = irrigation * 1.5  // Updated cost (gameplay balance)
   const fertilizerCost = fertilizer * 1.2
   const totalCost = irrigationCost + fertilizerCost
 
@@ -25,7 +27,7 @@ export default function GameInterface({ gameState }) {
     try {
       const result = await submitAction(irrigation, fertilizer)
 
-      console.log('Week validated:', result.week, 'is_complete:', result.is_complete)
+      console.log('Week', result.week_played, 'validated. Next week:', result.week, 'is_complete:', result.is_complete)
 
       // Update game state
       setGameState(result, sessionId)
@@ -35,16 +37,19 @@ export default function GameInterface({ gameState }) {
       setFertilizer(0)
 
       // Check if game is complete (week 12 finished)
-      // Backend should return is_complete=true AFTER week 12 is played
       if (result.is_complete) {
-        console.log('Game complete! Triggering harvest...')
+        console.log('Game complete! Week 12 finished. Showing harvest button after delay...')
+        setGameComplete(true)  // Disable button immediately
         setTimeout(() => {
-          handleHarvest()
-        }, 1500)
+          setShowHarvestButton(true)
+        }, 2000)  // 2 seconds to see week 12 results
       }
     } catch (error) {
       console.error('Action failed:', error)
-      alert('Error: ' + error.message)
+      // Don't show error if game is already complete (expected behavior)
+      if (!error.message.includes('already completed')) {
+        alert('Error: ' + error.message)
+      }
     }
   }
 
@@ -72,6 +77,9 @@ export default function GameInterface({ gameState }) {
   const week = gameState?.week || 1
   const budget = gameState?.budget || 2000
 
+  // Display week (cap at 12 for UI)
+  const displayWeek = Math.min(week, 12)
+
   return (
     <div className="game-interface">
       {/* Top info bar - Compact stats */}
@@ -80,7 +88,7 @@ export default function GameInterface({ gameState }) {
           <span className="stat-compact-icon">📅</span>
           <div className="stat-compact-content">
             <span className="stat-compact-label">Week</span>
-            <span className="stat-compact-value">{week}/12</span>
+            <span className="stat-compact-value">{displayWeek}/12</span>
           </div>
         </div>
 
@@ -120,6 +128,7 @@ export default function GameInterface({ gameState }) {
           </div>
         </div>
       </div>
+
 
       {/* Bottom control bar */}
       <div className="control-bar">
@@ -178,16 +187,37 @@ export default function GameInterface({ gameState }) {
             </div>
           </div>
 
-          <button
-            className="btn-validate"
-            onClick={handleValidateWeek}
-            disabled={isProcessing || totalCost > budget}
-          >
-            {isProcessing ? 'Simulating...' : 'Validate Week ' + week}
-          </button>
+          {showHarvestButton ? (
+            <button
+              className="btn-validate btn-harvest"
+              onClick={handleHarvest}
+              disabled={isProcessing}
+              style={{
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                fontSize: '1.1em',
+                fontWeight: 'bold'
+              }}
+            >
+              🌾 View Harvest Results
+            </button>
+          ) : (
+            <button
+              className="btn-validate"
+              onClick={handleValidateWeek}
+              disabled={isProcessing || totalCost > budget || gameComplete}
+            >
+              {gameComplete ? 'Season Complete! ✓' : (isProcessing ? 'Simulating...' : 'Validate Week ' + displayWeek)}
+            </button>
+          )}
 
-          {totalCost > budget && (
+          {totalCost > budget && !gameComplete && (
             <p className="error-budget">Insufficient budget</p>
+          )}
+
+          {gameComplete && !showHarvestButton && (
+            <p style={{ color: '#10b981', marginTop: '10px', fontWeight: 'bold' }}>
+              ✓ Week 12 complete! Preparing results...
+            </p>
           )}
         </div>
       </div>

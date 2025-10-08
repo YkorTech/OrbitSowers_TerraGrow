@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useGameStore } from '../../stores/gameStore'
 import { useNASAData } from '../../hooks/useNASAData'
 import CropSelector from './CropSelector'
+import SeasonSelector from './SeasonSelector'
 import './RegionCard.css'
 
 /**
@@ -13,7 +14,15 @@ export default function RegionCard({ region }) {
   const setLoading = useGameStore(state => state.setLoading)
   const selectedCrop = useGameStore(state => state.selectedCrop)
 
-  const { data, loading, error } = useNASAData(region.lat, region.lon, selectedCrop.id)
+  const [selectedSeason, setSelectedSeason] = useState('spring_2024')
+
+  const { data, loading, error } = useNASAData(
+    region.lat,
+    region.lon,
+    selectedCrop.id,
+    selectedSeason,
+    null // region_id determined by backend based on lat/lon
+  )
 
   const handleStartGame = () => {
     if (!data) return
@@ -76,12 +85,19 @@ export default function RegionCard({ region }) {
               </div>
             </div>
 
+            {/* Season Selector */}
+            <SeasonSelector
+              selected={selectedSeason}
+              onChange={setSelectedSeason}
+            />
+
             {/* Crop Selector with 3D preview */}
             <CropSelector climate={data.state.region.climate} />
 
-            <div className="data-source-badge">
-              <span className="satellite-icon">🛰️</span>
-              <span>Real-time NASA POWER data</span>
+            {/* Data Source Badge - Small */}
+            <div className="data-source-compact">
+              <span className="source-icon">🛰️</span>
+              <span>NASA POWER + MODIS 2024</span>
             </div>
 
             <button

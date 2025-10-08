@@ -9,6 +9,14 @@ export default function Header() {
   const view = useGameStore(state => state.view)
   const gameState = useGameStore(state => state.gameState)
   const resetGame = useGameStore(state => state.resetGame)
+  const setShowTutorial = useGameStore(state => state.setShowTutorial)
+  const setShowEducationalPanel = useGameStore(state => state.setShowEducationalPanel)
+
+  const handleShowTutorial = () => {
+    // Reset tutorial completion to show it again
+    localStorage.removeItem('terragrow_tutorial_completed')
+    setShowTutorial(true)
+  }
 
   return (
     <header className="header">
@@ -21,7 +29,7 @@ export default function Header() {
         {view === 'game' && gameState && (
           <div className="game-stats">
             <div className="stat">
-              <span className="stat-label">Semaine</span>
+              <span className="stat-label">Week</span>
               <span className="stat-value">{gameState.week || 1}</span>
               <span className="stat-max">/ 12</span>
             </div>
@@ -34,11 +42,28 @@ export default function Header() {
       </div>
 
       <div className="header-right">
+        <button
+          className="btn-icon"
+          onClick={handleShowTutorial}
+          title="Tutorial"
+        >
+          ?
+        </button>
+
+        <button
+          className="btn-icon"
+          onClick={() => setShowEducationalPanel(true)}
+          title="Learn about NASA data"
+        >
+          Learn
+        </button>
+
         {view !== 'globe' && (
           <button className="btn-back" onClick={resetGame}>
-            ← Retour au globe
+            ← Back to Globe
           </button>
         )}
+
         <span className="team-badge">OrbitSowers Labs</span>
       </div>
     </header>

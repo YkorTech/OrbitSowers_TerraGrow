@@ -57,6 +57,11 @@ class Config:
             'growth_rate': 0.075,  # NDVI increase per week
             'initial_ndvi': 0.14,
             'max_ndvi': 0.82,
+            # New parameters for realistic behavior
+            'drought_tolerance': 'medium',  # How well crop handles low water
+            'waterlog_tolerance': 'medium',  # How well crop handles excess water
+            'nitrogen_curve': [0.20, 0.50, 0.25, 0.05],  # N needs by growth stage
+            'price_per_ton': 300,  # USD/ton
         },
         'corn': {
             'name': 'Maïs',
@@ -67,8 +72,12 @@ class Config:
             'growth_rate': 0.08,
             'initial_ndvi': 0.15,
             'max_ndvi': 0.85,
+            'drought_tolerance': 'medium',
+            'waterlog_tolerance': 'medium',
+            'nitrogen_curve': [0.20, 0.50, 0.25, 0.05],
+            'price_per_ton': 250,
         },
-        'maize': {  # Alias for corn (backward compatibility)
+        'maize': {  # Alias for corn
             'name': 'Maïs',
             'optimal_temp': 25,
             'optimal_moisture': 60,
@@ -77,26 +86,38 @@ class Config:
             'growth_rate': 0.08,
             'initial_ndvi': 0.15,
             'max_ndvi': 0.85,
+            'drought_tolerance': 'medium',
+            'waterlog_tolerance': 'medium',
+            'nitrogen_curve': [0.20, 0.50, 0.25, 0.05],
+            'price_per_ton': 250,
         },
         'rice': {
             'name': 'Riz',
             'optimal_temp': 28,
-            'optimal_moisture': 80,  # Rice needs more water
+            'optimal_moisture': 80,  # Rice LOVES water
             'water_need': 700,
             'nitrogen_need': 130,
             'growth_rate': 0.07,
             'initial_ndvi': 0.13,
             'max_ndvi': 0.83,
+            'drought_tolerance': 'low',  # Dies quickly without water
+            'waterlog_tolerance': 'high',  # Can handle flooded fields
+            'nitrogen_curve': [0.25, 0.45, 0.25, 0.05],
+            'price_per_ton': 400,
         },
         'sunflower': {
             'name': 'Tournesol',
             'optimal_temp': 22,
-            'optimal_moisture': 50,  # Drought resistant
+            'optimal_moisture': 50,
             'water_need': 350,
             'nitrogen_need': 90,
             'growth_rate': 0.08,
             'initial_ndvi': 0.16,
             'max_ndvi': 0.84,
+            'drought_tolerance': 'high',  # Excellent drought resistance
+            'waterlog_tolerance': 'low',  # Hates waterlogging
+            'nitrogen_curve': [0.15, 0.55, 0.25, 0.05],
+            'price_per_ton': 450,
         },
         'tomato': {
             'name': 'Tomate',
@@ -107,6 +128,10 @@ class Config:
             'growth_rate': 0.09,
             'initial_ndvi': 0.18,
             'max_ndvi': 0.86,
+            'drought_tolerance': 'low',  # Needs consistent moisture
+            'waterlog_tolerance': 'medium',
+            'nitrogen_curve': [0.20, 0.45, 0.30, 0.05],  # Heavy feeder
+            'price_per_ton': 800,  # High value crop
         },
         'lettuce': {
             'name': 'Laitue',
@@ -117,8 +142,12 @@ class Config:
             'growth_rate': 0.10,  # Fast growing
             'initial_ndvi': 0.20,
             'max_ndvi': 0.80,
+            'drought_tolerance': 'low',
+            'waterlog_tolerance': 'high',  # Shallow roots, can handle moisture
+            'nitrogen_curve': [0.30, 0.50, 0.15, 0.05],  # Early heavy feeding
+            'price_per_ton': 1200,  # Very high value
         },
-        'sorghum': {  # Keep for backward compatibility
+        'sorghum': {
             'name': 'Sorgho',
             'optimal_temp': 28,
             'optimal_moisture': 50,
@@ -127,6 +156,10 @@ class Config:
             'growth_rate': 0.07,
             'initial_ndvi': 0.12,
             'max_ndvi': 0.80,
+            'drought_tolerance': 'high',  # Best drought tolerance
+            'waterlog_tolerance': 'low',
+            'nitrogen_curve': [0.20, 0.50, 0.25, 0.05],
+            'price_per_ton': 200,  # Subsistence crop
         }
     }
 
@@ -136,25 +169,25 @@ class Config:
             'name': 'Limon (Loam)',
             'field_capacity': 70,  # %
             'wilting_point': 25,  # %
-            'drainage_rate': 0.15,
+            'drainage_rate': 0.60,  # ✅ Increased from 0.15 to 0.60 for realistic drainage
             'nitrogen_retention': 0.85,
         },
         'sandy': {
             'name': 'Sableux (Sandy)',
             'field_capacity': 50,
             'wilting_point': 15,
-            'drainage_rate': 0.30,
+            'drainage_rate': 0.85,  # ✅ Increased from 0.30 to 0.85 (sandy drains fast)
             'nitrogen_retention': 0.65,
         },
         'clay': {
             'name': 'Argileux (Clay)',
             'field_capacity': 85,
             'wilting_point': 35,
-            'drainage_rate': 0.08,
+            'drainage_rate': 0.35,  # ✅ Increased from 0.08 to 0.35 (clay drains slowly but still drains)
             'nitrogen_retention': 0.95,
         }
     }
 
     # Costs (USD)
-    IRRIGATION_COST_PER_MM = 3.5  # $ per mm
+    IRRIGATION_COST_PER_MM = 1.5  # $ per mm (reduced for gameplay balance - makes arid regions playable)
     FERTILIZER_COST_PER_KG = 1.2  # $ per kg N
