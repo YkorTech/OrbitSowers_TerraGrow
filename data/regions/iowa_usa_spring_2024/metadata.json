@@ -1,0 +1,52 @@
+{
+  "region_id": "iowa_usa",
+  "region_name": "Iowa, USA",
+  "season_id": "spring_2024",
+  "season_name": "Spring 2024",
+  "location": {
+    "latitude": 41.88,
+    "longitude": -93.1,
+    "climate_zone": "Continental humide"
+  },
+  "period": {
+    "start_date": "2024-03-01",
+    "end_date": "2024-05-31",
+    "total_weeks": 13
+  },
+  "data_sources": {
+    "weather": {
+      "source": "NASA POWER API",
+      "url": "https://power.larc.nasa.gov/",
+      "parameters": [
+        "T2M (Temperature 2m)",
+        "T2M_MAX (Max Temperature)",
+        "T2M_MIN (Min Temperature)",
+        "PRECTOTCORR (Precipitation Corrected)",
+        "RH2M (Relative Humidity 2m)",
+        "WS2M (Wind Speed 2m)"
+      ],
+      "temporal_resolution": "Daily (aggregated to weekly)",
+      "spatial_resolution": "0.5° × 0.625°"
+    },
+    "ndvi": {
+      "source": "MODIS Terra MOD13Q1",
+      "url": "https://lpdaac.usgs.gov/products/mod13q1v061/",
+      "parameters": [
+        "NDVI (Normalized Difference Vegetation Index)",
+        "EVI (Enhanced Vegetation Index)",
+        "VI_Quality (Quality flags)"
+      ],
+      "temporal_resolution": "16-day composite",
+      "spatial_resolution": "250m",
+      "note": "Optional - may not be available for all regions"
+    }
+  },
+  "recommended_crops": [
+    "Wheat",
+    "Soybean",
+    "Maize",
+    "Barley"
+  ],
+  "difficulty": "medium",
+  "description": "Continental climate with hot summers and cold winters. Prime agricultural region."
+}

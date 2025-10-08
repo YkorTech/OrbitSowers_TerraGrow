@@ -138,6 +138,26 @@
   100% { transform: rotate(360deg); }
 }
 
+.data-source-compact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: rgba(11, 61, 145, 0.2);
+  border: 1px solid rgba(11, 61, 145, 0.3);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.data-source-compact .source-icon {
+  font-size: 1rem;
+}
+
 .btn-start-game {
   width: 100%;
   padding: 16px;

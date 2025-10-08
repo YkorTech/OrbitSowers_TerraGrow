@@ -5,6 +5,7 @@ __pycache__/
 *.so
 .Python
 venv/
+.venv/
 env/
 ENV/
 *.egg-info/
@@ -37,6 +38,7 @@ Thumbs.db
 
 # Logs
 *.log
+Log appeears.txt
 
 # Environment variables
 .env
@@ -51,9 +53,32 @@ data/regions/*.hdf
 DEPLOIEMENT_FR.md
 RESUME_DEPLOIEMENT.md
 pre-deploy-checklist.sh
-pre-deploy-checklist.ba
-DEPLOYMENT.md 
-QUICKSTART.md  
+pre-deploy-checklist.bat
+DEPLOYMENT.md
+QUICKSTART.md
 README_DEPLOYMENT.md
+IMPLEMENTATION_PLAN.md
+GAME_LOGIC_DESIGN.md
+GAMEPLAY_PROBLEMS_ANALYSIS.md
+WEEK_12_FIX.md
+Challenge.txt
 
+# Development files
 nul
+nasa_all_params.json
+test_appeears.py
+
+# Old/archived code
+old_frontend/
+
+# Presentation materials
+drive/
+Certificate_NASA Space Apps Challenge.pdf
+
+# Internal docs (archived)
+terragrow_mvp.md
+terragrow_level1.md
+terragrow_roadmap.md
+
+# Scripts
+scripts/

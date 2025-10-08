@@ -32,15 +32,15 @@
 
     Name: terragrow_yaounde_cameroun  
 
-    Date Completed:** 2025-10-04T20:08:19.750938  
+    Date Completed:** 2025-10-08T02:44:08.622603  
 
-    ID: 8ac6276e-14e2-44ea-b705-cf97858713cf  
+    ID: a63ebc76-3f61-4e1c-aa7f-352c681e6a0b  
 
     Details:  
 
-        Start Date: 10-04-2024  
+        Start Date: 10-07-2024  
 
-        End Date: 10-04-2025
+        End Date: 10-07-2025
     
         Layers:  
 
@@ -304,11 +304,11 @@ AppEEARS sample request outputs are available to download for a limited amount o
 
 ## 8. Data Product Citations  
 
-- Didan, K. (2021). MODIS/Terra Vegetation Indices 16-Day L3 Global 250m SIN Grid V061. NASA EOSDIS Land Processes Distributed Active Archive Center. Accessed 2025-10-04 from https://doi.org/10.5067/MODIS/MOD13Q1.061. Accessed October 4, 2025.
+- Didan, K. (2021). MODIS/Terra Vegetation Indices 16-Day L3 Global 250m SIN Grid V061. NASA EOSDIS Land Processes Distributed Active Archive Center. Accessed 2025-10-08 from https://doi.org/10.5067/MODIS/MOD13Q1.061. Accessed October 8, 2025.
 
 ## 9. Software Citation  
 
-AppEEARS Team. (2025). Application for Extracting and Exploring Analysis Ready Samples (AppEEARS). Ver. 3.99. NASA EOSDIS Land Processes Distributed Active Archive Center (LP DAAC), USGS/Earth Resources Observation and Science (EROS) Center, Sioux Falls, South Dakota, USA. Accessed October 4, 2025. https://appeears.earthdatacloud.nasa.gov
+AppEEARS Team. (2025). Application for Extracting and Exploring Analysis Ready Samples (AppEEARS). Ver. 3.99. NASA EOSDIS Land Processes Distributed Active Archive Center (LP DAAC), USGS/Earth Resources Observation and Science (EROS) Center, Sioux Falls, South Dakota, USA. Accessed October 8, 2025. https://appeears.earthdatacloud.nasa.gov
 
 ## 10. Feedback  
 

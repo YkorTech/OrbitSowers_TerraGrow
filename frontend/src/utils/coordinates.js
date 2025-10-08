@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { logger } from './logger'
 
 /**
  * Convert latitude/longitude to 3D position on sphere
@@ -65,7 +66,7 @@ export async function getRegionName(lat, lon) {
     const data = await response.json()
     return data.display_name || `${lat.toFixed(2)}°, ${lon.toFixed(2)}°`
   } catch (error) {
-    console.error('Geocoding error:', error)
+    logger.error('Geocoding error:', error)
     return `${lat.toFixed(2)}°, ${lon.toFixed(2)}°`
   }
 }

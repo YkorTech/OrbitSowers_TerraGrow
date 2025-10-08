@@ -123,8 +123,8 @@ function CropModel3D({ crop }) {
     yPosition = 0
   }
   if (crop.id === 'lettuce') {
-    previewScale = 1.0
-    yPosition = 0
+    previewScale = 0.12
+    yPosition = -0.1
   }
   if (crop.id === 'rice') {
     previewScale = 0.9
