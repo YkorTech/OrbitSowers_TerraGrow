@@ -11,13 +11,14 @@ import GameInterface from './components/UI/GameInterface'
 import ResultsScreen from './components/UI/ResultsScreen'
 import GlobeControls from './components/UI/GlobeControls'
 import { useGameStore } from './stores/gameStore'
+import { logger } from './utils/logger'
 
 function App() {
   const { view, selectedRegion, gameState, harvestResults } = useGameStore()
 
   // Debug logs
   React.useEffect(() => {
-    console.log('🎮 App state:', { view, hasGameState: !!gameState, hasHarvestResults: !!harvestResults })
+    logger.log('App state:', { view, hasGameState: !!gameState, hasHarvestResults: !!harvestResults })
   }, [view, gameState, harvestResults])
 
   return (

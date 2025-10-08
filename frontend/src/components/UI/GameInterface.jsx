@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useGameStore } from '../../stores/gameStore'
 import { useGameActions } from '../../hooks/useNASAData'
+import { logger } from '../../utils/logger'
 import './GameInterface.css'
 
 /**
@@ -27,7 +28,7 @@ export default function GameInterface({ gameState }) {
     try {
       const result = await submitAction(irrigation, fertilizer)
 
-      console.log('Week', result.week_played, 'validated. Next week:', result.week, 'is_complete:', result.is_complete)
+      logger.log('Week', result.week_played, 'validated. Next week:', result.week, 'is_complete:', result.is_complete)
 
       // Update game state
       setGameState(result, sessionId)
@@ -38,14 +39,14 @@ export default function GameInterface({ gameState }) {
 
       // Check if game is complete (week 12 finished)
       if (result.is_complete) {
-        console.log('Game complete! Week 12 finished. Showing harvest button after delay...')
+        logger.log('Game complete! Week 12 finished. Showing harvest button after delay...')
         setGameComplete(true)  // Disable button immediately
         setTimeout(() => {
           setShowHarvestButton(true)
         }, 2000)  // 2 seconds to see week 12 results
       }
     } catch (error) {
-      console.error('Action failed:', error)
+      logger.error('Action failed:', error)
       // Don't show error if game is already complete (expected behavior)
       if (!error.message.includes('already completed')) {
         alert('Error: ' + error.message)
@@ -55,19 +56,19 @@ export default function GameInterface({ gameState }) {
 
   const handleHarvest = async () => {
     try {
-      console.log('🌾 Starting harvest...')
+      logger.log('Starting harvest...')
       const results = await harvest()
-      console.log('✅ Harvest results received:', results)
+      logger.log('Harvest results received:', results)
 
       // Store results
       setHarvestResults(results)
-      console.log('📊 Results stored in state')
+      logger.log('Results stored in state')
 
       // Switch to results view
       setView('results')
-      console.log('🎯 View switched to results')
+      logger.log('View switched to results')
     } catch (error) {
-      console.error('Harvest failed:', error)
+      logger.error('Harvest failed:', error)
       alert('Harvest error: ' + error.message)
     }
   }

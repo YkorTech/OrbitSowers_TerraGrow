@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useGameStore } from '../../stores/gameStore'
 import { latLonToVector3, getRegionName } from '../../utils/coordinates'
+import { logger } from '../../utils/logger'
 import './GlobeControls.css'
 
 /**
@@ -29,7 +30,7 @@ export default function GlobeControls() {
         const lat = position.coords.latitude
         const lon = position.coords.longitude
 
-        console.log(`Geolocation: ${lat.toFixed(2)}°, ${lon.toFixed(2)}°`)
+        logger.log(`Geolocation: ${lat.toFixed(2)}°, ${lon.toFixed(2)}°`)
 
         // Get region name
         const regionName = await getRegionName(lat, lon)
@@ -58,7 +59,7 @@ export default function GlobeControls() {
         setLoading(false)
       },
       (error) => {
-        console.error('Geolocation error:', error)
+        logger.error('Geolocation error:', error)
         setError('Unable to get your position')
         setGeolocating(false)
         setLoading(false)

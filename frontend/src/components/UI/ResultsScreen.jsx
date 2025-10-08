@@ -1,5 +1,6 @@
 import React from 'react'
 import { useGameStore } from '../../stores/gameStore'
+import { logger } from '../../utils/logger'
 import './ResultsScreen.css'
 
 /**
@@ -8,10 +9,10 @@ import './ResultsScreen.css'
 export default function ResultsScreen({ harvestResults }) {
   const resetGame = useGameStore(state => state.resetGame)
 
-  console.log('🎨 ResultsScreen rendering with:', harvestResults)
+  logger.log('ResultsScreen rendering with:', harvestResults)
 
   if (!harvestResults) {
-    console.warn('⚠️ ResultsScreen: harvestResults is null/undefined')
+    logger.warn('ResultsScreen: harvestResults is null/undefined')
     return null
   }
 
@@ -23,7 +24,7 @@ export default function ResultsScreen({ harvestResults }) {
     ndvi_history = []
   } = harvestResults
 
-  console.log('📊 Parsed results:', { cropYield, sustainability_score, stars, recommendations, ndvi_history })
+  logger.log('Parsed results:', { cropYield, sustainability_score, stars, recommendations, ndvi_history })
 
   // Calculate grade based on stars
   const getGrade = (stars) => {
