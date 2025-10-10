@@ -30,10 +30,11 @@ export default function RegionMarkers() {
   const setCameraTarget = useGameStore(state => state.setCameraTarget)
   const showEducationalPanel = useGameStore(state => state.showEducationalPanel)
   const showTutorial = useGameStore(state => state.showTutorial)
+  const showTeamModal = useGameStore(state => state.showTeamModal)
   const [hoveredId, setHoveredId] = useState(null)
 
   // Hide labels when any modal is open
-  const hideLabels = showEducationalPanel || showTutorial
+  const hideLabels = showEducationalPanel || showTutorial || showTeamModal
 
   const handleRegionClick = (region) => {
     const position = latLonToVector3(region.lat, region.lon, 1)

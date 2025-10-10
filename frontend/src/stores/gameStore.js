@@ -38,8 +38,10 @@ export const useGameStore = create((set) => ({
   // UI Modals
   showTutorial: false,
   showEducationalPanel: false,
+  showTeamModal: false,
   setShowTutorial: (show) => set({ showTutorial: show }),
   setShowEducationalPanel: (show) => set({ showEducationalPanel: show }),
+  setShowTeamModal: (show) => set({ showTeamModal: show }),
 
   // Region data cache
   regionDataCache: {},
